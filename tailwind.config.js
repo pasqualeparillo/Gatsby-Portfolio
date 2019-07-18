@@ -26,6 +26,9 @@ module.exports = {
         800: '#2d3748',
         900: '#1a202c',
       },
+      tan: {
+        100: '#F7F3F0',
+      },
       red: {
         100: '#fff5f5',
         200: '#fed7d7',
@@ -261,6 +264,8 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
+      '13vw': '13vw',
+      vw: '9vw',
     },
     fontWeight: {
       hairline: '100',
@@ -277,6 +282,7 @@ module.exports = {
       auto: 'auto',
       ...theme('spacing'),
       full: '100%',
+      '1/4': '25%',
       screen: '100vh',
     }),
     inset: {
