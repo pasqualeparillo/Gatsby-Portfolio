@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
+import { AnimationContext } from "../store/animation"
 import { SmallContainer } from "../styled/container"
-import { motion, useCycle } from "framer-motion"
+import { motion } from "framer-motion"
+
 export default function NavBar() {
-  const [isClicked, setIsClicked] = useCycle(false, true)
+  const { isClicked, setIsClicked } = useContext(AnimationContext)
+
   const variants = {
     open: {
       transition: {

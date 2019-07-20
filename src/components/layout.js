@@ -11,20 +11,23 @@ import FooterIndex from "./footer/footerIndex"
 import { HorizontalBg, VerticalBg } from "./background/lines"
 import NavBar from "./header/navBar"
 import Content from "./content/content"
+import { ContextProvider } from "./store/state"
 import "./layout.css"
 import "./style.css"
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen w-full overflow-y-hidden">
-      <HorizontalBg />
-      <VerticalBg />
-      <NavBar />
-      <div className="flex flex-1 flex-grow justify-center">
-        <Content>{children}</Content>
+    <ContextProvider>
+      <div className="flex flex-col min-h-screen w-full overflow-y-hidden">
+        <HorizontalBg />
+        <VerticalBg />
+        <NavBar />
+        <div className="flex flex-1 flex-grow justify-center">
+          <Content>{children}</Content>
+        </div>
+        <FooterIndex />
       </div>
-      <FooterIndex />
-    </div>
+    </ContextProvider>
   )
 }
 
