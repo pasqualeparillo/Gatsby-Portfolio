@@ -1,8 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Cinzel:700&display=swap');
-.lato {
-    font-family: 'Lato', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:700,800,900&display=swap');
+
+.work {
+    font-family: 'Work Sans', sans-serif;
 }
-.cinzel {
-    font-family: 'Cinzel', serif;
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    background: #fff;
+}
+
+.line:first-child {
+    border-color: black;
+    z-index: 50;
+}
+
+.line:nth-last-child(2) {
+    border-color: black;
+    z-index: 50;
+}
+
+.line:last-child {
+    border: none;
+}
+
+.line {
+    position: relative;
 }

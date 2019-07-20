@@ -7,21 +7,24 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import HeaderWrapper from './wrappers/headerWrapper'
-import FooterWrapper from './wrappers/footerWrapper'
+import FooterIndex from "./footer/footerIndex"
+import { HorizontalBg, VerticalBg } from "./background/lines"
+import NavBar from "./header/navBar"
+import Content from "./content/content"
 import "./layout.css"
 import "./style.css"
-import {HorizontalBg, VerticalBg} from "./wrappers/backgroundWrapper";
 
 const Layout = ({ children }) => {
   return (
-      <div className="flex flex-col min-h-screen w-full overflow-y-hidden">
+    <div className="flex flex-col min-h-screen w-full overflow-y-hidden">
       <HorizontalBg />
       <VerticalBg />
-      <HeaderWrapper />
-        {children}
-      <FooterWrapper />
+      <NavBar />
+      <div className="flex flex-1 flex-grow justify-center">
+        <Content>{children}</Content>
       </div>
+      <FooterIndex />
+    </div>
   )
 }
 
