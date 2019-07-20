@@ -9,9 +9,9 @@ export default function FooterIndex() {
         className="lg:w-1/4 w-1/2 h-full"
         bgblack="true"
         positionstart="true"
-        initial={{ y: " 90px" }}
+        initial={{ y: "120px" }}
         animate={{ y: "0px" }}
-        transition={{ ease: "easeIn", duration: 0.4 }}
+        transition={{ delay: 1.2, ease: "easeIn", duration: 0.4 }}
       >
         <div className="flex justify-around w-full p-4">
           <SocialLinks />
