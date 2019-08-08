@@ -1,6 +1,6 @@
 import React from "react"
 import { SmallContainer } from "../styled/container"
-import SocialLinks from "./socialLinks"
+
 
 export default function FooterIndex() {
   return (
@@ -14,7 +14,7 @@ export default function FooterIndex() {
         transition={{ delay: 1.2, ease: "easeIn", duration: 0.4 }}
       >
         <div className="flex justify-around w-full p-4">
-          <SocialLinks />
+        
         </div>
       </SmallContainer>
     </div>

@@ -17,3 +17,9 @@ export const LargeContainer = styled(motion.div)`
   ${props => props.eighty && tw`lg:w-4/5 w-full`};
   ${props => props.wrap && tw`flex-wrap`};
 `
+export const Square = styled(motion.div)`
+  ${tw`lg:w-1/4 w-1/2 border border-black`};
+`
+export const Row = styled(motion.div)`
+  ${tw`flex w-full flex-wrap`};
+`

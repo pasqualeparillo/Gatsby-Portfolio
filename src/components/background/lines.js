@@ -6,9 +6,8 @@ const container = {
   visible: {
     opacity: 1,
     transition: {
-      delay: 0.3,
       when: "beforeChildren",
-      staggerChildren: 0.3,
+      staggerChildren: 0.2,
     },
   },
 }
@@ -36,7 +35,7 @@ export const VerticalBg = () => (
     {[0, 1, 2, 3, 4, 5, 6, 7].map(index => (
       <motion.div
         key={index}
-        className="w-1/4 relative h-full lg:border-r-2 border-grey-100 line"
+        className="w-1/4 relative h-full lg:border-r border-grey-100 line"
         variants={verticalLine}
         transition={{ duration: 2 }}
       />
@@ -50,10 +49,10 @@ export const HorizontalBg = () => (
     initial="hidden"
     animate="visible"
   >
-    {[0, 1, 2, 3, 4, 5, 6, 7].map(index => (
+     {[0, 1, 2, 3, 4].map(index => (
       <motion.div
         key={index}
-        className="relative w-full h-1/4 lg:border-b-2 border-grey-100 line"
+        className="relative w-full h-1/4 lg:border-b border-grey-100 line"
         variants={horizontalLine}
         transition={{ duration: 2 }}
       />
