@@ -18,11 +18,13 @@
     "gatsby-plugin-styled-components": "^3.1.0",
     "gatsby-source-filesystem": "^2.0.43",
     "gatsby-transformer-sharp": "^2.1.21",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
+    "react-responsive": "^7.0.0",
     "styled-components": "^5.0.0-beta.6-ej4",
     "tailwindcss": "^1.0.4"
   },

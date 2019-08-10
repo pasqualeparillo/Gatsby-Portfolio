@@ -1,5 +1,6 @@
 import React from "react"
 import { Row, Square } from "../components/styled/container"
+import MediaQuery from "react-responsive"
 
 export default function IndexPage() {
   return (
@@ -31,18 +32,20 @@ export default function IndexPage() {
             <Square lb="true" bb="true" className="lg:bg-white bg-blue-700" />
             <Square tr="true" br="true" className="lg:bg-white bg-red-600" />
             <Square tl="true" className="lg:bg-white bg-white" />
-            <Square className="lg:inline-block hidden" />
-            <Square className="lg:inline-block hidden" />
-            <Square className="lg:inline-block hidden" />
-            <Square className="lg:inline-block hidden bg-black" />
-            <Square className="lg:inline-block hidden" />
-            <Square className="lg:inline-block hidden bg-blue-700" />
-            <Square className="lg:inline-block hidden" />
-            <Square className="lg:inline-block hidden" />
-            <Square className="lg:inline-block hidden bg-red-600" />
-            <Square className="lg:inline-block hidden" />
-            <Square className="lg:inline-block hidden" />
-            <Square className="lg:inline-block hidden" />
+            <MediaQuery minWidth={992}>
+              <Square className="lg:inline-block" />
+              <Square className="lg:inline-block" />
+              <Square className="lg:inline-block" />
+              <Square className="lg:inline-block bg-black" />
+              <Square className="lg:inline-block" />
+              <Square className="lg:inline-block bg-blue-700" />
+              <Square className="lg:inline-block" />
+              <Square className="lg:inline-block" />
+              <Square className="lg:inline-block bg-red-600" />
+              <Square className="lg:inline-block" />
+              <Square className="lg:inline-block" />
+              <Square className="lg:inline-block" />
+            </MediaQuery>
           </Row>
         </Square>
       </Row>
