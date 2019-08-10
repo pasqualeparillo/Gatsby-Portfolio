@@ -4,36 +4,130 @@ import { SmallContainer } from "../styled/container"
 import { motion } from "framer-motion"
 
 export default function NavBar() {
-  const [visible, setIsVisible] = useState(false)
+  const [open, setIsOpen] = useState(false)
   const list = {
-    visible: {
-      width: '5rem', height: '5rem',
+    closed: {
+      marginRight: "16px",
+      marginTop: "16px",
+      width: "80px",
+      height: "80px",
       transition: {
-        when: "beforeChildren",
-      },
-      
-    },
-    hidden: {
-      width: '40%', height: '40%',
-      transition: {
+        type: "tween",
         when: "afterChildren",
+        staggerChildren: 0.1,
+      },
+    },
+    open: {
+      marginRight: "16px",
+      marginTop: "16px",
+      width: "calc(100vw - 32px)",
+      height: "calc(100vh - 32px)",
+      transition: {
+        type: "tween",
+        when: "beforeChildren",
+        staggerChildren: 0.1,
       },
     },
   }
-  
+
   const items = {
-    visible: { x: 0 },
-    hidden: { x: -10 },
+    open: { textColor: "black" },
+    closed: { textColor: "white" },
+  }
+  const menuItems = {
+    open: { opacity: 1 },
+    closed: { opacity: 0 },
   }
 
   return (
-    <motion.div  animate={visible ? "hidden" : "visible"} onClick={()=> setIsVisible(!visible)} variants={list} className="absolute right-0 top-0 mr-4 mt-4 z-50 bg-white flex justify-center hover:shadow-lg">
-      <div className="absolute right-0 p-4 flex flex-col flex-wrap h-20 w-20 justify-start overflow-hidden">
-        <div className="flex flex-wrap flex-col justify-around h-full">
-          <motion.span variants={items} className="w-full h-1 bg-black"/>
-          <motion.span variants={items} className="w-full h-1 bg-black"/>
-          <motion.span variants={items} className="w-full h-1 bg-black"/>
-        </div>
+    <motion.div
+      animate={open ? "open" : "closed"}
+      initial="closed"
+      variants={list}
+      className="absolute right-0 top-0 z-50 bg-black border-2 border-white flex justify-center overflow-y-hidden overflow-x-hidden hover:shadow-lg "
+    >
+      <div
+        className="flex items-center self-center flex-col z-40 cursor-pointer"
+        onClick={() => setIsOpen(!open)}
+      >
+        <motion.div
+          className="w-full flex items-center content-center justify-center"
+          initial="closed"
+          variants={menuItems}
+        >
+          <p className="text-white uppercase text-5xl font-extrabold">Home</p>
+        </motion.div>
+        <motion.div
+          className="w-full flex items-center content-center justify-center"
+          initial="closed"
+          variants={menuItems}
+        >
+          <p className="text-white uppercase text-5xl font-extrabold">About</p>
+        </motion.div>
+        <motion.div
+          className="w-full flex items-center content-center justify-center"
+          initial="closed"
+          variants={menuItems}
+        >
+          <p className="text-white uppercase text-5xl font-extrabold">
+            Projects
+          </p>
+        </motion.div>
+        <motion.div
+          className="w-full flex items-center content-center justify-center"
+          initial="closed"
+          variants={menuItems}
+        >
+          <p className="text-white uppercase text-5xl font-extrabold">
+            Contact
+          </p>
+        </motion.div>
+      </div>
+      <div
+        className="absolute right-0 p-4 flex flex-col flex-wrap h-20 w-20 justify-start overflow-hidden cursor-pointer border-4 border-white"
+        onClick={() => setIsOpen(!open)}
+      >
+        {open ? (
+          <div className="flex flex-wrap flex-col justify-around h-full w-full">
+            <motion.span
+              variants={items}
+              className="w-full flex h-full flex-wrap self-center content-center"
+            >
+              <span className="text-white flex justify-center font-extrabold w-1/2">
+                H
+              </span>
+              <span className="text-white flex justify-center font-extrabold w-1/2">
+                I
+              </span>
+              <span className="text-white flex justify-center font-extrabold w-1/2">
+                D
+              </span>
+              <span className="text-white flex justify-center font-extrabold w-1/2">
+                E
+              </span>
+            </motion.span>
+          </div>
+        ) : (
+          <div className="flex flex-wrap flex-col justify-around h-full w-full">
+            <motion.span
+              variants={items}
+              className="w-full flex h-full flex-wrap self-center content-center"
+            >
+              <span className="text-white flex justify-center font-extrabold w-1/2">
+                M
+              </span>
+              <span className="text-white flex justify-center font-extrabold w-1/2">
+                E
+              </span>
+              <span className="text-white flex justify-center font-extrabold w-1/2">
+                N
+              </span>
+              <span className="text-white flex justify-center font-extrabold w-1/2">
+                U
+              </span>
+            </motion.span>
+          </div>
+        )}
       </div>
     </motion.div>
   )
