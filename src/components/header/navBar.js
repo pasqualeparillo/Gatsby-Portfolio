@@ -44,12 +44,10 @@ export default function NavBar() {
       animate={open ? "open" : "closed"}
       initial="closed"
       variants={list}
-      className="absolute right-0 top-0 z-50 bg-black border-2 border-white flex justify-center overflow-y-hidden overflow-x-hidden hover:shadow-lg "
+      className="absolute right-0 top-0 z-50 bg-black border-2 border-white flex h-20 w-20 justify-center overflow-y-hidden overflow-x-hidden hover:shadow-lg "
+      onClick={() => setIsOpen(!open)}
     >
-      <div
-        className="flex items-center self-center flex-col z-40 cursor-pointer"
-        onClick={() => setIsOpen(!open)}
-      >
+      <div className="flex items-center self-center flex-col z-50 cursor-pointer">
         <motion.div
           className="w-full flex items-center content-center justify-center"
           initial="closed"
@@ -93,16 +91,16 @@ export default function NavBar() {
               variants={items}
               className="w-full flex h-full flex-wrap self-center content-center"
             >
-              <span className="text-white flex justify-center font-extrabold w-1/2">
+              <span className="text-white flex justify-center font-extrabold w-1/2 bg-blue-700">
                 H
               </span>
-              <span className="text-white flex justify-center font-extrabold w-1/2">
+              <span className="text-white flex justify-center font-extrabold w-1/2 bg-red-600">
                 I
               </span>
-              <span className="text-white flex justify-center font-extrabold w-1/2">
+              <span className="text-white flex justify-center font-extrabold w-1/2 ">
                 D
               </span>
-              <span className="text-white flex justify-center font-extrabold w-1/2">
+              <span className="text-white flex justify-center font-extrabold w-1/2 bg-yellow-400">
                 E
               </span>
             </motion.span>
@@ -113,16 +111,16 @@ export default function NavBar() {
               variants={items}
               className="w-full flex h-full flex-wrap self-center content-center"
             >
-              <span className="text-white flex justify-center font-extrabold w-1/2">
+              <span className="text-blue-600 flex justify-center font-extrabold w-1/2 ">
                 M
               </span>
-              <span className="text-white flex justify-center font-extrabold w-1/2">
+              <span className="text-red-600 flex justify-center font-extrabold w-1/2">
                 E
               </span>
-              <span className="text-white flex justify-center font-extrabold w-1/2">
+              <span className="text-white flex justify-center font-extrabold w-1/2 ">
                 N
               </span>
-              <span className="text-white flex justify-center font-extrabold w-1/2">
+              <span className="text-yellow-400 flex justify-center font-extrabold w-1/2 ">
                 U
               </span>
             </motion.span>

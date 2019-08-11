@@ -18,12 +18,10 @@ const Layout = ({ children }) => {
   return (
     <ContextProvider>
       <div className="flex flex-col min-h-screen w-full overflow-y-hidden">
-    
         <NavBar />
         <div className="flex flex-1 flex-col flex-grow justify-center">
           <Content>{children}</Content>
         </div>
-        <FooterIndex />
       </div>
     </ContextProvider>
   )
