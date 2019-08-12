@@ -10,12 +10,22 @@ export default function IndexPage() {
         <Square>
           <div className="flex flex-col h-full w-full content-end items-end justify-end absolute ">
             <div className="flex items-center justify-center tracking-tighter lg:border-t-4 border-t-2 border-black w-full p-4 relative">
-              <p
-                className="font-extrabold uppercase whitespace-no-wrap"
-                style={{ fontSize: "calc(25vw / 10)" }}
-              >
-                Pasquale Parillo
-              </p>
+              <MediaQuery minWidth={992}>
+                <p
+                  className="font-extrabold uppercase whitespace-no-wrap"
+                  style={{ fontSize: "calc(25vw / 10)" }}
+                >
+                  Pasquale Parillo
+                </p>
+              </MediaQuery>
+              <MediaQuery maxWidth={992}>
+                <p
+                  className="font-extrabold uppercase whitespace-no-wrap"
+                  style={{ fontSize: "calc(25vw / 5)" }}
+                >
+                  Pasquale Parillo
+                </p>
+              </MediaQuery>
             </div>
           </div>
         </Square>

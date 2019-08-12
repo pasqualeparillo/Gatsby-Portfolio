@@ -4,32 +4,12 @@ import { motion } from "framer-motion"
 import MediaQuery from "react-responsive"
 
 export default function FooterIndex() {
-  const [open, setIsOpen] = useState(false)
   const { isContactOpen, setIsContactOpen } = useContext(AnimationContext)
-  const list = {
-    closed: {
-      width: "100%",
-      transition: {
-        type: "tween",
-      },
-    },
-    open: {
-      width: "200%",
-      transition: {
-        type: "tween",
-      },
-    },
-  }
+
   return (
     <motion.div
-      className="flex justify-between absolute h-full justify-end z-40"
-      animate={open ? "open" : "closed"}
-      transition={{ delay: 1.2, ease: "easeIn", duration: 0.4 }}
-      variants={list}
-      bgblack="true"
-      positionstart="true"
-      initial="closed"
-      onClick={() => setIsOpen(!open)}
+      className="flex justify-between absolute h-full justify-end z-40 w-full "
+      onClick={() => setIsContactOpen(!isContactOpen)}
     >
       <motion.div className="flex h-full w-full flex items-center justify-center cursor-pointer">
         {console.log(isContactOpen)}
