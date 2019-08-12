@@ -1,6 +1,4 @@
-import React, { useContext, useState } from "react"
-import { AnimationContext } from "../store/animation"
-import { SmallContainer } from "../styled/container"
+import React, { useState } from "react"
 import { motion } from "framer-motion"
 
 export default function NavBar() {
@@ -44,7 +42,7 @@ export default function NavBar() {
       animate={open ? "open" : "closed"}
       initial="closed"
       variants={list}
-      className="absolute right-0 top-0 z-50 bg-black border-2 border-white flex h-20 w-20 justify-center overflow-y-hidden overflow-x-hidden hover:shadow-lg "
+      className="absolute right-0 top-0 z-50 bg-black flex h-20 w-20 justify-center overflow-y-hidden overflow-x-hidden hover:shadow-lg "
       onClick={() => setIsOpen(!open)}
     >
       <div className="flex items-center self-center flex-col z-50 cursor-pointer">

@@ -1,7 +1,8 @@
 import React from "react"
 import { Row, Square } from "../components/styled/container"
 import MediaQuery from "react-responsive"
-import FooterIndex from "../components/footer/footerIndex"
+import ContactTile from "../components/contact/contactTile"
+import ContactModal from "../components/contact/contactModal";
 
 export default function IndexPage() {
   return (
@@ -99,7 +100,8 @@ export default function IndexPage() {
           </MediaQuery>
         </Square>
         <Square>
-          <FooterIndex />
+          <ContactTile />
+          <ContactModal />
         </Square>
         <Square className="lg:border-none border">
           <Row className="h-full w-full flex flex-1">
