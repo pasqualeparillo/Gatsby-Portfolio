@@ -80,6 +80,7 @@ export default function ContactModal() {
             className="absolute flex flex-1 flex-grow h-full w-full transform" 
             animate={isContactOpen ? ["open", "heightOpen"] : ["closed", "heightClosed"] }
             variants={desktop}
+            initial={{scaleY: [0], scaleX: [0]}}
             >
                 <motion.div className="w-full h-full hover:bg-black bg-black z-40">
 

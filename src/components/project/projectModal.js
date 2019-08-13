@@ -45,8 +45,8 @@ export default function ProjectModal() {
             duration: .2,
             type: "tween",
         },
-      }
-    }
+      },
+  }
 
       const phone = {
         closed: {
@@ -79,6 +79,7 @@ export default function ProjectModal() {
             className="absolute flex flex-1 flex-grow transform h-full w-full" 
             animate={isProjectOpen ? ["open", "heightOpen"] : ["closed", "heightClosed"]}
             variants={desktop}
+            initial={{scaleY: [0], scaleX: [0]}}
             >
                 <motion.div
                     className="w-full h-full hover:bg-black bg-black z-40">
