@@ -26,7 +26,7 @@ export default function ContactTile() {
               style={{ height: "100%" }}
             >
               <motion.p
-                className={"font-extrabold uppercase whitespace-no-wrap" + `${isContactOpen ? ' text-white' : 'text-black'}`}
+                className={`font-extrabold uppercase whitespace-no-wrap ${isContactOpen ? 'text-white' : null }`}
                 style={{ fontSize: "calc(25vw / 6)" } }
               >
                 Contact
@@ -41,12 +41,12 @@ export default function ContactTile() {
               className="flex items-center justify-center tracking-tighter w-full p-4 bg-black text-white relative hover:bg-white hover:text-black transform"
               style={{ height: "100%" }}
             >
-              <motion.p
+              <p
                 className="uppercase font-extrabold "
                 style={{ fontSize: "calc(25vw)" }}
               >
                 C
-              </motion.p>
+              </p>
             </div>
           </div>
         </MediaQuery>

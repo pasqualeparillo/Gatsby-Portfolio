@@ -1,8 +1,10 @@
-import React from "react"
-import { Row, Square } from "../components/styled/container"
-import MediaQuery from "react-responsive"
-import ContactTile from "../components/contact/contactTile"
+import React from "react";
+import { Row, Square } from "../components/styled/container";
+import MediaQuery from "react-responsive";
+import ContactTile from "../components/contact/contactTile";
 import ContactModal from "../components/contact/contactModal";
+import ProjectModal from "../components/project/projectModal";
+import ProjectTile from '../components/project/projectTile';
 
 export default function IndexPage() {
   return (
@@ -68,43 +70,15 @@ export default function IndexPage() {
       <Row>
         <Square />
         <Square>
-          <MediaQuery minWidth={992}>
-            <div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer">
-              <div
-                className="flex items-center justify-center tracking-tighter  w-full p-4 relative hover:bg-black hover:text-white transform"
-                style={{ height: "100%" }}
-              >
-                <p
-                  className="font-extrabold uppercase whitespace-no-wrap"
-                  style={{ fontSize: "calc(25vw / 6)" }}
-                >
-                  Projects
-                </p>
-              </div>
-            </div>
-          </MediaQuery>
-          <MediaQuery maxWidth={992}>
-            <div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer">
-              <div
-                className="flex items-center justify-center tracking-tighter w-full p-4 bg-black text-white relative hover:bg-white hover:text-black transform"
-                style={{ height: "100%" }}
-              >
-                <p
-                  className="font-extrabold uppercase whitespace-no-wrap "
-                  style={{ fontSize: "calc(25vw)" }}
-                >
-                  P
-                </p>
-              </div>
-            </div>
-          </MediaQuery>
+          <ProjectModal />
+          <ProjectTile />
         </Square>
         <Square>
           <ContactTile />
           <ContactModal />
         </Square>
         <Square className="lg:border-none border">
-          <Row className="h-full w-full flex flex-1">
+          <Row className="h-full w-full flex flex-1 z-0">
             <Square rb="true" className="bg-yellow-400" />
             <Square lb="true" bb="true" className="lg:bg-white bg-blue-700" />
             <Square tr="true" br="true" className="lg:bg-white bg-red-600" />
