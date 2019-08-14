@@ -5,7 +5,7 @@ import { AnimationContext } from "../store/animation"
 
 export default function ProjectTile() {
   const { isProjectOpen, setIsProjectOpen } = useContext(AnimationContext)
-  const projectOpen = {
+  const desktop = {
     open: {
       backgroundColor: "#000",
       zIndex: 45,
@@ -26,7 +26,7 @@ export default function ProjectTile() {
           className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden "
           animate={isProjectOpen ? "open" : "closed"}
           transition={{ duration: 0.2, type: "tween" }}
-          variants={projectOpen}
+          variants={desktop}
           initial="closed"
           onClick={() => setIsProjectOpen(!isProjectOpen)}
         >

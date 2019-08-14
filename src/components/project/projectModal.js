@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { AnimationContext } from "../store/animation"
 import { motion } from "framer-motion"
 import MediaQuery from "react-responsive"
+import { ProjectActive } from "./projectActive"
 
 export default function ProjectModal() {
   const { isProjectOpen, setIsProjectOpen } = useContext(AnimationContext)
@@ -110,7 +111,9 @@ export default function ProjectModal() {
             x: "0%",
           }}
         >
-          <div className="w-full h-full  bg-black z-40"></div>
+          <div className="w-full h-full flex flex-grow flex-wrap bg-black relative">
+            <ProjectActive />
+          </div>
         </motion.div>
       </MediaQuery>
 
@@ -126,7 +129,9 @@ export default function ProjectModal() {
           initial={{ scaleY: [1], scaleX: [1], y: "0%", x: "0%" }}
           variants={phone}
         >
-          <motion.div className="w-full h-full bg-black hover:bg-black z-40"></motion.div>
+          <motion.div className="w-full h-full bg-black hover:bg-black z-40">
+            <ProjectActive />
+          </motion.div>
         </motion.div>
       </MediaQuery>
     </>
