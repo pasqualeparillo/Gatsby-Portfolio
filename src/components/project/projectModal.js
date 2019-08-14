@@ -1,104 +1,134 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react"
 import { AnimationContext } from "../store/animation"
 import { motion } from "framer-motion"
 import MediaQuery from "react-responsive"
 
 export default function ProjectModal() {
-    const { isProjectOpen, setIsProjectOpen } = useContext(AnimationContext);
-    const desktop = {
-      closed: {
-        scaleX: [2.021, 1],
-        x: ['-50%', '0%'],
-        zIndex: 40,
-        transition: {
-          type: "tween",
-          delay: .4,
-          duration: .2,
-        },
+  const { isProjectOpen, setIsProjectOpen } = useContext(AnimationContext)
+  const desktop = {
+    widthClosed: {
+      scaleX: [2.021, 1],
+      x: ["-50%", "0%"],
+      zIndex: 40,
+      transition: {
+        type: "tween",
+        delay: 0.4,
+        duration: 0.2,
       },
-      open: {
-        scaleX: [1, 2.021],
-        x: ['0%', '-50%'],
-          zIndex: 40,
-          transition: {
-            type: "tween",
-            delay: 0,
-            duration: .2,
-        },
+    },
+    widthOpen: {
+      scaleX: [1, 2.021],
+      x: ["0%", "-50%"],
+      zIndex: 40,
+      transition: {
+        type: "tween",
+        delay: 0,
+        duration: 0.2,
       },
-      heightOpen: {
-        scaleY: [1, 2.021],
-        y: ['0%', '-50%'],
-          zIndex: 40,
-          transition: {
-            delay: .4,
-            duration: .2,
-            type: "tween",
-        },
+    },
+    heightOpen: {
+      scaleY: [1, 2.021],
+      y: ["0%", "-50%"],
+      zIndex: 40,
+      transition: {
+        delay: 0.4,
+        duration: 0.2,
+        type: "tween",
       },
-      heightClosed: {
-        scaleY: [2.021, 1],
-        y: ['-50%', '0%'],
-          zIndex: 40,
-          transition: {
-            delay: 0,
-            duration: .2,
-            type: "tween",
-        },
+    },
+    heightClosed: {
+      scaleY: [2.021, 1],
+      y: ["-50%", "0%"],
+      zIndex: 40,
+      transition: {
+        delay: 0,
+        duration: 0.2,
+        type: "tween",
       },
+    },
   }
 
-      const phone = {
-        closed: {
-          height: '100%', 
-          width: '100%', 
-          zIndex: 0,
-          y:'0%', 
-          transition: {
-            type: "tween",
-            when: "beforeChildren",
-            delayChildren: 1,
-          },
-        },
-        open: {
-            height: '302%', 
-            width: '201.5%', 
-            zIndex: 40,
-            y: '-66.5%', 
-            transition: {
-            type: "tween",
-          },
-        },
-      }
+  const phone = {
+    widthClosed: {
+      scaleX: [2.021, 1],
+      x: ["-50.5%", "0%"],
+      zIndex: 0,
+      transition: {
+        type: "tween",
+        delay: 0.4,
+        duration: 0.2,
+      },
+    },
+    heightClosed: {
+      scaleY: [3.042, 1],
+      y: ["-100.4%", "0%"],
+      zIndex: 40,
+      transition: {
+        delay: 0,
+        duration: 0.2,
+        type: "tween",
+      },
+    },
+    WidthOpen: {
+      scaleX: [1, 2.02],
+      x: ["0%", "-50.5%"],
+      zIndex: 0,
+      transition: {
+        type: "tween",
+        duration: 0.2,
+        delay: 0,
+      },
+    },
+    HeightOpen: {
+      scaleY: [1, 3.042],
+      y: ["0%", "-100.4%"],
+      zIndex: 40,
+      transition: {
+        type: "tween",
+        duration: 0.2,
+        delay: 0.4,
+      },
+    },
+  }
 
-    return (
-        <>
-        <MediaQuery minWidth={992}>
-            <motion.div
-            onClick={()=> setIsProjectOpen(!isProjectOpen)} 
-            className="absolute flex flex-1 flex-grow transform h-full w-full" 
-            animate={isProjectOpen ? ["open", "heightOpen"] : ["closed", "heightClosed"]}
-            variants={desktop}
-            initial={{scaleY: [0], scaleX: [0]}}
-            >
-                <motion.div
-                    className="w-full h-full hover:bg-black bg-black z-40">
-
-                </motion.div>
-            </motion.div>
-        </MediaQuery>
-        <MediaQuery maxWidth={992}>
+  return (
+    <>
+      <MediaQuery minWidth={992}>
         <motion.div
-            onClick={()=> setIsProjectOpen(!isProjectOpen)} 
-            className="absolute flex flex-1 flex-grow h-full w-full transform" 
-            animate={isProjectOpen ? "open" : "closed"}
-            variants={phone}
-            >
-                <motion.div className="w-full h-full hover:bg-black bg-black z-40">
+          onClick={() => setIsProjectOpen(!isProjectOpen)}
+          className="absolute flex flex-1 flex-grow transform h-full w-full"
+          animate={
+            isProjectOpen
+              ? ["widthOpen", "heightOpen"]
+              : ["widthClosed", "heightClosed"]
+          }
+          variants={desktop}
+          initial={{
+            scaleY: [1],
+            scaleX: [1],
+            y: "0%",
+            x: "0%",
+          }}
+        >
+          <div className="w-full h-full  bg-black z-40"></div>
+        </motion.div>
+      </MediaQuery>
 
-                </motion.div>
-            </motion.div>
-        </MediaQuery>
-        </>
-    )
+      <MediaQuery maxWidth={992}>
+        <motion.div
+          onClick={() => setIsProjectOpen(!isProjectOpen)}
+          className="absolute flex flex-1 flex-grow h-full w-full transform "
+          animate={
+            isProjectOpen
+              ? ["HeightOpen", "WidthOpen"]
+              : ["heightClosed", "widthClosed"]
+          }
+          initial={{ scaleY: [1], scaleX: [1], y: "0%", x: "0%" }}
+          variants={phone}
+        >
+          <motion.div className="w-full h-full bg-black hover:bg-black z-40"></motion.div>
+        </motion.div>
+      </MediaQuery>
+    </>
+  )
 }

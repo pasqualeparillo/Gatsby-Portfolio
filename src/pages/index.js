@@ -1,10 +1,10 @@
-import React from "react";
-import { Row, Square } from "../components/styled/container";
-import MediaQuery from "react-responsive";
-import ContactTile from "../components/contact/contactTile";
-import ContactModal from "../components/contact/contactModal";
-import ProjectModal from "../components/project/projectModal";
-import ProjectTile from '../components/project/projectTile';
+import React from "react"
+import { Row, Square } from "../components/styled/container"
+import MediaQuery from "react-responsive"
+import ContactTile from "../components/contact/contactTile"
+import ContactModal from "../components/contact/contactModal"
+import ProjectModal from "../components/project/projectModal"
+import ProjectTile from "../components/project/projectTile"
 
 export default function IndexPage() {
   return (
@@ -35,9 +35,9 @@ export default function IndexPage() {
         <Square />
         <Square>
           <MediaQuery minWidth={992}>
-            <div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer">
+            <div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer bg-black">
               <div
-                className="flex items-center justify-center tracking-tighter w-full p-4 relative bg-white text-black hover:bg-black hover:text-white transform"
+                className="flex items-center justify-center tracking-tighter w-full p-4 relative bg-white text-black hover:bg-black hover:text-white transform "
                 style={{ height: "100%" }}
               >
                 <p

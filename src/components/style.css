@@ -7,3 +7,15 @@ body {
 .transform {
   transition: 0.2s all;
 }
+.border-radius-tear {
+  border-radius: 50% 0% 50% 0% / 50% 0% 50% 0%;
+}
+.border-radius-drop {
+  border-radius: 0% 50% 0% 50% / 0% 50% 0% 50%;
+}
+.border-radius-drop-invert-bl {
+  border-radius: 0% 50% 0% 50% / 0% 50% 0% 0%;
+}
+.border-radius-drop-invert-tr {
+  border-radius: 50% 50% 50% 50% / 0% 0% 0% 50%;
+}
