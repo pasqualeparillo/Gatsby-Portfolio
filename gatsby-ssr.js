@@ -11,7 +11,11 @@ import { ContextProvider } from "./src/components/store/state"
 import Layout from "./src/components/layout"
 import { ServerStyleSheet } from "styled-components"
 
-export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
+export const replaceRenderer = ({
+  bodyComponent,
+  replaceBodyHTMLString,
+  setHeadComponents,
+}) => {
   // React Context in SSR/build
   const ConnectedBody = () => (
     <ContextProvider>
