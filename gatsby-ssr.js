@@ -8,9 +8,14 @@
 import React from "react"
 import { renderToString } from "react-dom/server"
 import { ContextProvider } from "./src/components/store/state"
+import Layout from "./src/components/layout"
 
 export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
   // React Context in SSR/build
-  const ConnectedBody = () => <ContextProvider>{bodyComponent}</ContextProvider>
+  const ConnectedBody = () => (
+    <ContextProvider>
+      <Layout>{bodyComponent}</Layout>
+    </ContextProvider>
+  )
   replaceBodyHTMLString(renderToString(<ConnectedBody />))
 }
