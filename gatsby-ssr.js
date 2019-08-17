@@ -9,6 +9,7 @@ import React from "react"
 import { renderToString } from "react-dom/server"
 import { ContextProvider } from "./src/components/store/state"
 import Layout from "./src/components/layout"
+import { ServerStyleSheet } from "styled-components"
 
 export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
   // React Context in SSR/build
@@ -17,5 +18,9 @@ export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
       <Layout>{bodyComponent}</Layout>
     </ContextProvider>
   )
+  const sheet = new ServerStyleSheet()
+  const bodyHTML = renderToString(sheet.collectStyles(<ConnectedBody />))
+  const styleElement = sheet.getStyleElement()
+  setHeadComponents(styleElement)
   replaceBodyHTMLString(renderToString(<ConnectedBody />))
 }
