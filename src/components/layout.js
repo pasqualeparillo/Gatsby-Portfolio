@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import NavBar from "./header/navBar"
 import { ContextProvider } from "./store/state"
+import { AnimatePresence, motion } from "framer-motion"
 import "./layout.css"
 import "./style.css"
-import { AnimatePresence, motion } from "framer-motion"
 
 const duration = 1
 
@@ -32,7 +32,7 @@ export const Layout = ({ children, location }) => {
           <motion.div
             className="flex flex-1 flex-col flex-grow justify-center min-h-screen"
             initial="initial"
-            key={location ? location.pathname : null}
+            key={location.pathname}
             variants={variants}
             animate="enter"
             exit="exit"
@@ -48,5 +48,7 @@ export const Layout = ({ children, location }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
+Layout.defaultProps = {
+  location: {},
+}
 export default Layout
