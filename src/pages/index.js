@@ -1,36 +1,71 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Row, Square } from "../components/styled/container"
 import MediaQuery from "react-responsive"
 import ContactTile from "../components/contact/contactTile"
 import ContactModal from "../components/contact/contactModal"
 import ProjectModal from "../components/project/projectModal"
 import ProjectTile from "../components/project/projectTile"
+import { Link } from "gatsby"
+import { AnimationContext } from "../components/store/animation"
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function IndexPage() {
+  const { pageLocation, setPageLocation } = useContext(AnimationContext)
+  const item = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        delay: 1,
+      },
+    },
+    exit: {
+      y: -300,
+      opacity: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  }
   return (
     <div className="flex flex-1 flex-wrap w-full h-full bg-white relative">
       <Row>
-        <Square wfourth="true">
-          <div className="flex flex-col h-full w-full content-end items-end justify-end absolute ">
-            <div className="flex items-center justify-center tracking-tighter lg:border-t-4 border-t-2 border-black w-full p-4 relative">
-              <MediaQuery minWidth={992}>
-                <p
-                  className="font-extrabold uppercase whitespace-no-wrap"
-                  style={{ fontSize: "calc(25vw / 10)" }}
-                >
-                  Pasquale Parillo
-                </p>
-              </MediaQuery>
-              <MediaQuery maxWidth={992}>
-                <p
-                  className="font-extrabold uppercase whitespace-no-wrap"
-                  style={{ fontSize: "calc(25vw / 5)" }}
-                >
-                  Pasquale Parillo
-                </p>
-              </MediaQuery>
-            </div>
-          </div>
+        <Square wfourth="true" className="overflow-hidden">
+          <AnimatePresence>
+            <motion.div
+              key={pageLocation}
+              variants={item}
+              initial={{ y: 300, opacity: 0 }}
+              animate="open"
+              exit="exit"
+              className="flex flex-col h-full w-full content-end items-end justify-end absolute overflow-hidden"
+            >
+              <div className="flex items-center justify-center tracking-tighter lg:border-t-4 border-t-2 border-black w-full p-4 relative">
+                <MediaQuery minWidth={992}>
+                  <Link
+                    to="/projects"
+                    onClick={() => setPageLocation("/projects")}
+                  >
+                    <p
+                      className="font-extrabold uppercase whitespace-no-wrap"
+                      style={{ fontSize: "calc(25vw / 10)" }}
+                    >
+                      Pasquale Parillo
+                    </p>
+                  </Link>
+                </MediaQuery>
+                <MediaQuery maxWidth={992}>
+                  <p
+                    className="font-extrabold uppercase whitespace-no-wrap"
+                    style={{ fontSize: "calc(25vw / 5)" }}
+                  >
+                    Pasquale Parillo
+                  </p>
+                </MediaQuery>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </Square>
         <Square wfourth="true" />
         <Square wfourth="true">

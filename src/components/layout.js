@@ -1,19 +1,45 @@
-import React from "react"
+import React, { useEffect, useContext } from "react"
 import PropTypes from "prop-types"
 import NavBar from "./header/navBar"
-import Content from "./content/content"
 import { ContextProvider } from "./store/state"
 import "./layout.css"
 import "./style.css"
+import { AnimatePresence, motion } from "framer-motion"
 
-const Layout = ({ children }) => {
+const duration = 1
+
+const variants = {
+  initial: {},
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: duration,
+      when: "afterChildren",
+    },
+  },
+  exit: {
+    opacity: 1,
+    transition: { duration: duration },
+  },
+}
+
+export const Layout = ({ children, location }) => {
   return (
     <ContextProvider>
       <div className="flex flex-col min-h-screen w-full overflow-y-hidden">
         <NavBar />
-        <div className="flex flex-1 flex-col flex-grow justify-center">
-          <Content>{children}</Content>
-        </div>
+        <AnimatePresence>
+          <motion.div
+            className="flex flex-1 flex-col flex-grow justify-center"
+            initial="initial"
+            key={location.pathname}
+            variants={variants}
+            animate="enter"
+            exit="exit"
+          >
+            {children}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </ContextProvider>
   )

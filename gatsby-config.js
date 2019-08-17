@@ -6,15 +6,10 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-      {
-        resolve: `gatsby-plugin-layout`,
-        options: {
-            component: require.resolve(`./src/components/layout`)
-        }
-    },
+
     {
       resolve: `gatsby-plugin-styled-components`,
-      },
+    },
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,
