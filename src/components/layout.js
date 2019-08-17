@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import NavBar from "./header/navBar"
 import { ContextProvider } from "./store/state"
@@ -32,7 +32,7 @@ export const Layout = ({ children, location }) => {
           <motion.div
             className="flex flex-1 flex-col flex-grow justify-center min-h-screen"
             initial="initial"
-            key={location.pathname || null}
+            key={location ? location.pathname : null}
             variants={variants}
             animate="enter"
             exit="exit"
