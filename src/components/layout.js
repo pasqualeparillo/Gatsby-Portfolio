@@ -30,9 +30,9 @@ export const Layout = ({ children, location }) => {
         <NavBar />
         <AnimatePresence>
           <motion.div
-            className="flex flex-1 flex-col flex-grow justify-center"
+            className="flex flex-1 flex-col flex-grow justify-center min-h-screen"
             initial="initial"
-            key={location.pathname}
+            key={location.pathname || null}
             variants={variants}
             animate="enter"
             exit="exit"
