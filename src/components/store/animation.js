@@ -5,7 +5,7 @@ export function AnimationProvider(props) {
   const [isClicked, setIsClicked] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
   const [isProjectOpen, setIsProjectOpen] = useState(false)
-  const [pageLocation, setPageLocation] = useState()
+  const [pageLocation, setPageLocation] = useState("")
   return (
     <AnimationContext.Provider
       value={{
