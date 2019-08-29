@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Row, Square } from '../components/styled/container';
 import MediaQuery from 'react-responsive';
+import ContactTile from '../components/contact/contactTile';
 import ProjectTile from '../components/project/projectTile';
 import { Link } from 'gatsby';
 import { AnimationContext } from '../components/store/animation';
@@ -97,7 +98,7 @@ export default function IndexPage() {
 					<ProjectTile />
 				</Square>
 				<Square wfourth="true">
-					<vwTile />
+					<ContactTile />
 				</Square>
 				<Square wfourth="true" className="lg:border-none border wfourth='true' ">
 					<Row className="h-full w-full flex flex-1 z-0">
