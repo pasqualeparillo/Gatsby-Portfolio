@@ -266,7 +266,7 @@ module.exports = {
       "5xl": "3rem",
       "6xl": "4rem",
       "13vw": "13vw",
-      vw: "9vw",
+      vw: "calc(25vw / 6)",
     },
     fontWeight: {
       hairline: "100",

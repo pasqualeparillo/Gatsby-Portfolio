@@ -1,69 +1,72 @@
-import React, { useContext } from "react"
-import { AnimationContext } from "../store/animation"
-import { motion } from "framer-motion"
-import MediaQuery from "react-responsive"
+import React, { useContext } from 'react';
+import { Link } from 'gatsby';
+import { motion, AnimatePresence } from 'framer-motion';
+import MediaQuery from 'react-responsive';
+import { AnimationContext } from '../../components/store/animation';
 
 export default function ContactTile() {
-  const { isContactOpen, setIsContactOpen } = useContext(AnimationContext)
+	const { pageLocation, setPageLocation } = useContext(AnimationContext);
+	const item = {
+		open: {
+			y: 0,
+			opacity: 1,
+			transition: {
+				duration: 1,
+				delay: 1
+			}
+		},
+		exit: {
+			y: 300,
+			opacity: 0,
+			transition: {
+				duration: 1
+			}
+		}
+	};
+	return (
+		<div className="flex justify-between absolute h-full justify-end w-full overflow-hidden">
+			<div className="flex h-full w-full flex items-center justify-center cursor-pointer">
+				<Link className="w-full h-full" to="/contact" onClick={() => setPageLocation('/contact')}>
+					<MediaQuery minWidth={992}>
+						<div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer">
+							<div
+								className="flex items-center justify-center tracking-tighter w-full p-4 relative text-black transform hover:bg-black overflow-hidden border-black hover:text-white"
+								style={{ height: '100%' }}
+							>
+								<AnimatePresence>
+									<motion.div
+										className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
+										key={pageLocation}
+										variants={item}
+										initial={{ y: 300, opacity: 0 }}
+										animate="open"
+										exit="exit"
+									>
+										<div
+											className="flex items-center justify-center tracking-tighter w-full p-4 bg-white text-black relative hover:bg-black hover:text-white transform"
+											style={{ height: '100%' }}
+										>
+											<p className="font-extrabold uppercase whitespace-no-wrap text-vw">
+												Contact
+											</p>
+										</div>
+									</motion.div>
+								</AnimatePresence>
+							</div>
+						</div>
+					</MediaQuery>
 
-  const contactOpen = {
-    open: {
-      backgroundColor: "#000",
-      zIndex: 45,
-      borderWidth: "2px",
-      borderColor: "#f6e05e",
-    },
-    closed: {
-      backgroundColor: "#fff",
-      zIndex: 45,
-      borderWidth: "0px",
-      borderColor: "#000",
-    },
-  }
-  return (
-    <motion.div
-      className="flex justify-between absolute h-full justify-end w-full overflow-hidden"
-      animate={isContactOpen ? "open" : "closed"}
-      transition={{ duration: 0.2, type: "tween" }}
-      variants={contactOpen}
-      initial="closed"
-      onClick={() => setIsContactOpen(!isContactOpen)}
-    >
-      <motion.div className="flex h-full w-full flex items-center justify-center cursor-pointer">
-        <MediaQuery minWidth={992}>
-          <div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer">
-            <div
-              className="flex items-center justify-center tracking-tighter  w-full p-4 relative hover:bg-black overflow-hidden border-black hover:text-white "
-              style={{ height: "100%" }}
-            >
-              <motion.p
-                className={`font-extrabold uppercase whitespace-no-wrap ${
-                  isContactOpen ? "text-white" : null
-                }`}
-                style={{ fontSize: "calc(25vw / 6)" }}
-              >
-                Contact
-              </motion.p>
-            </div>
-          </div>
-        </MediaQuery>
-
-        <MediaQuery maxWidth={992}>
-          <div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer">
-            <div
-              className="flex items-center justify-center tracking-tighter w-full p-4 bg-black text-white relative hover:bg-white hover:text-black transform"
-              style={{ height: "100%" }}
-            >
-              <p
-                className="uppercase font-extrabold "
-                style={{ fontSize: "calc(25vw)" }}
-              >
-                C
-              </p>
-            </div>
-          </div>
-        </MediaQuery>
-      </motion.div>
-    </motion.div>
-  )
+					<MediaQuery maxWidth={992}>
+						<div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer">
+							<div className="flex items-center justify-center tracking-tighter w-full h-full p-4 bg-black text-white relative hover:bg-white hover:text-black transform">
+								<p className="uppercase font-extrabold " style={{ fontSize: 'calc(25vw)' }}>
+									C
+								</p>
+							</div>
+						</div>
+					</MediaQuery>
+				</Link>
+			</div>
+		</div>
+	);
 }
