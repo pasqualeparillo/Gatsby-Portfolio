@@ -7,7 +7,7 @@ import { Tile, CloseTile } from '../components/projects/tile';
 
 export default function IndexPage() {
 	return (
-		<motion.div className="flex flex-1 flex-wrap w-full h-full bg-white relative">
+		<motion.div className="flex flex-1 flex-wrap w-full h-full relative">
 			<Row>
 				<Square wfourth="true" className="overflow-hidden">
 					<div className="flex flex-col h-full w-full content-end items-end justify-end absolute overflow-hidden">

@@ -2,27 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import { motion, AnimatePresence } from 'framer-motion';
 import MediaQuery from 'react-responsive';
-import { AnimationContext } from '../../components/store/animation';
-
+import { AnimationContext, animationDuration } from '../../components/store/animation';
+import { variant } from '../../components/store/variants';
 export default function ContactTile() {
 	const { pageLocation, setPageLocation } = useContext(AnimationContext);
-	const item = {
-		open: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				duration: 1,
-				delay: 1
-			}
-		},
-		exit: {
-			y: 300,
-			opacity: 0,
-			transition: {
-				duration: 1
-			}
-		}
-	};
+
 	return (
 		<div className="flex justify-between absolute h-full justify-end w-full overflow-hidden">
 			<div className="flex h-full w-full flex items-center justify-center cursor-pointer">
@@ -37,9 +21,9 @@ export default function ContactTile() {
 									<motion.div
 										className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
 										key={pageLocation}
-										variants={item}
-										initial={{ y: 300, opacity: 0 }}
-										animate="open"
+										variants={variant}
+										initial={{ opacity: 0 }}
+										animate="enter"
 										exit="exit"
 									>
 										<div

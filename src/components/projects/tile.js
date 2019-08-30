@@ -2,38 +2,38 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { AnimationContext } from '../../components/store/animation';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { animationDuration } from '../../components/store/animation';
+import { variant } from '../../components/store/variants';
 export function Tile({ title }) {
 	const { pageLocation } = useContext(AnimationContext);
 	const item = {
 		open: {
-			y: 0,
 			opacity: 1,
 			transition: {
-				duration: 1,
-				delay: 1
+				duration: animationDuration / 2,
+				delay: animationDuration * 1.2
 			}
 		},
 		exit: {
-			y: -300,
 			opacity: 0,
 			transition: {
-				duration: 1
+				duration: animationDuration
 			}
 		}
 	};
 	return (
 		<AnimatePresence>
+			{console.log(animationDuration)}
 			<motion.div
 				className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
 				key={pageLocation}
-				variants={item}
-				initial={{ y: 300, opacity: 0 }}
-				animate="open"
+				variants={variant}
+				initial={{ opacity: 0 }}
+				animate="enter"
 				exit="exit"
 			>
 				<div
-					className="flex items-center justify-center tracking-tighter w-full p-4 bg-white text-black relative hover:bg-black hover:text-white transform"
+					className="flex items-center justify-center tracking-tighter w-full p-4  text-black relative hover:bg-black hover:text-white transform"
 					style={{ height: '100%' }}
 				>
 					<p className="font-extrabold uppercase whitespace-no-wrap text-5xl">{title}</p>
@@ -47,32 +47,97 @@ export function CloseTile() {
 	useEffect(() => {
 		setPageLocation('/projects');
 	}, [pageLocation]);
+
+	const animateHorizontal = {
+		enter: {
+			x: 0,
+			opacity: 1,
+			transition: {
+				delay: animationDuration * 1.2,
+				x: { stiffness: 1000 }
+			}
+		},
+		exit: {
+			x: 150,
+			opacity: 0,
+			transition: {
+				x: { stiffness: 1000 }
+			}
+		}
+	};
+
+	const animateVertical = {
+		enter: {
+			y: 0,
+			opacity: 1,
+			transition: {
+				delay: animationDuration * 1.4,
+				y: { stiffness: 1000 }
+			}
+		},
+		exit: {
+			y: 150,
+			opacity: 0,
+			transition: {
+				y: { stiffness: 1000 }
+			}
+		}
+	};
+
 	return (
 		<Link className="h-full w-full" to="/">
-			<div className="flex flex-col h-full w-full absolute cursor-pointer overflow-hidden">
-				<div className="flex flex-1 justify-center items-center h-full w-full relative ">
-					<AnimatePresence>
-						{console.log(pageLocation)}
-						{pageLocation === '/projects' && (
-							<>
-								<motion.div
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1 }}
-									exit={{ opacity: 0 }}
-									transition={{ delay: 1 }}
-									className="w-2 h-full bg-black absolute"
-								/>
-								<motion.div
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1 }}
-									exit={{ opacity: 0 }}
-									className="w-full h-2 bg-black "
-								/>
-							</>
-						)}
-					</AnimatePresence>
-				</div>
+			<div className="flex flex-col bg-black h-full w-full absolute cursor-pointer overflow-hidden">
+				<AnimatePresence>
+					{pageLocation === '/projects' && (
+						<ParentContainer>
+							<motion.div
+								initial="exit"
+								variants={animateHorizontal}
+								className="w-4 h-full bg-white absolute"
+								exit="exit"
+							/>
+
+							<motion.div
+								initial="exit"
+								variants={animateVertical}
+								exit="exit"
+								className="w-full h-4 bg-white absolute"
+							/>
+						</ParentContainer>
+					)}
+				</AnimatePresence>
 			</div>
 		</Link>
+	);
+}
+function ParentContainer({ children }) {
+	const parentVariant = {
+		enter: {
+			opacity: 1,
+			transition: {
+				duration: 0.2,
+				when: 'beforeChildren',
+				staggerChildren: 0.3
+			}
+		},
+		exit: {
+			opacity: 0,
+			transition: {
+				duration: 0.2,
+				when: 'afterChildren',
+				staggerChildren: 0.3
+			}
+		}
+	};
+	return (
+		<motion.div
+			className="flex w-full h-full flex-wrap relative justify-center items-center"
+			initial="exit"
+			variants={parentVariant}
+			animate="enter"
+			exit="exit"
+		>
+			{children}
+		</motion.div>
 	);
 }

@@ -6,28 +6,12 @@ import ProjectTile from '../components/project/projectTile';
 import { Link } from 'gatsby';
 import { AnimationContext } from '../components/store/animation';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { variant } from '../components/store/variants';
 export default function IndexPage() {
 	const { pageLocation } = useContext(AnimationContext);
-	const item = {
-		open: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				duration: 1,
-				delay: 1
-			}
-		},
-		exit: {
-			y: -300,
-			opacity: 0,
-			transition: {
-				duration: 1
-			}
-		}
-	};
+
 	return (
-		<div className="flex flex-1 flex-wrap w-full h-full bg-white relative">
+		<div className="flex flex-1 flex-wrap w-full h-full relative">
 			<Row>
 				<Square wfourth="true" className="overflow-hidden">
 					<div className="flex flex-col h-full w-full content-end items-end justify-end absolute overflow-hidden">
@@ -60,9 +44,9 @@ export default function IndexPage() {
 							<motion.div
 								className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
 								key={pageLocation}
-								variants={item}
-								initial={{ y: 300, opacity: 0 }}
-								animate="open"
+								variants={variant}
+								initial={{ opacity: 0 }}
+								animate="enter"
 								exit="exit"
 							>
 								<div
@@ -100,22 +84,22 @@ export default function IndexPage() {
 				<Square wfourth="true">
 					<ContactTile />
 				</Square>
-				<Square wfourth="true" className="lg:border-none border wfourth='true' ">
+				<Square wfourth="true" className="lg:border-none border z-0">
 					<Row className="h-full w-full flex flex-1 z-0">
-						<Square wfourth="true" rb="true" className="bg-yellow-400" />
-						<Square wfourth="true" lb="true" bb="true" className="lg:bg-white bg-blue-700" />
-						<Square wfourth="true" tr="true" br="true" className="lg:bg-white bg-red-600" />
-						<Square wfourth="true" tl="true" className="lg:bg-white bg-white" />
+						<Square wfourth="true" rb="true" className="bg-yellow-400 z-0" />
+						<Square wfourth="true" lb="true" bb="true" className="lg:bg-white bg-blue-700 z-0" />
+						<Square wfourth="true" tr="true" br="true" className="lg:bg-white bg-red-600 z-0" />
+						<Square wfourth="true" tl="true" className="lg:bg-white bg-white z-0" />
 						<MediaQuery minWidth={992}>
 							<Square wfourth="true" className="lg:inline-block" />
 							<Square wfourth="true" className="lg:inline-block" />
 							<Square wfourth="true" className="lg:inline-block" />
-							<Square wfourth="true" className="lg:inline-block bg-black" />
+							<Square wfourth="true" className="lg:inline-block bg-black z-0" />
 							<Square wfourth="true" className="lg:inline-block" />
-							<Square wfourth="true" className="lg:inline-block bg-blue-700" />
+							<Square wfourth="true" className="lg:inline-block bg-blue-700 z-0" />
 							<Square wfourth="true" className="lg:inline-block" />
 							<Square wfourth="true" className="lg:inline-block" />
-							<Square wfourth="true" className="lg:inline-block bg-red-600" />
+							<Square wfourth="true" className="lg:inline-block bg-red-600 z-0" />
 							<Square wfourth="true" className="lg:inline-block" />
 							<Square wfourth="true" className="lg:inline-block" />
 							<Square wfourth="true" className="lg:inline-block" />

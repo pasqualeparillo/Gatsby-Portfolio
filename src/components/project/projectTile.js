@@ -3,28 +3,13 @@ import { Link } from 'gatsby';
 import MediaQuery from 'react-responsive';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AnimationContext } from '../../components/store/animation';
+import { variant } from '../../components/store/variants';
 export default function ProjectTile() {
 	const { pageLocation, setPageLocation } = useContext(AnimationContext);
 	useEffect(() => {
 		setPageLocation('/');
 	}, [pageLocation]);
-	const animation = {
-		enter: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				duration: 1,
-				delay: 1
-			}
-		},
-		exit: {
-			y: 300,
-			opacity: 0,
-			transition: {
-				duration: 1
-			}
-		}
-	};
+
 	return (
 		<div className="flex justify-between absolute h-full justify-end w-full overflow-hidden">
 			<div className="flex h-full w-full flex items-center justify-center cursor-pointer">
@@ -38,8 +23,8 @@ export default function ProjectTile() {
 								<AnimatePresence inital={false}>
 									{pageLocation === '/' && (
 										<motion.p
-											variants={animation}
-											initial={{ y: 300, opacity: 0 }}
+											variants={variant}
+											initial={{ opacity: 0 }}
 											animate="enter"
 											exit="exit"
 											className="font-extrabold uppercase whitespace-no-wrap text-vw"
