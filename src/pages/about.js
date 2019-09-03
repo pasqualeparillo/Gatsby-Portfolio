@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Row, Square } from '../components/styled/container';
 import MediaQuery from 'react-responsive';
 import ContactTile from '../components/contact/contactTile';
@@ -8,10 +8,8 @@ import { AnimationContext } from '../components/store/animation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { variant } from '../components/store/variants';
 export default function IndexPage() {
-	const { pageLocation, setPageLocation } = useContext(AnimationContext);
-	useEffect(() => {
-		setPageLocation('/');
-	}, []);
+	const { pageLocation } = useContext(AnimationContext);
+
 	return (
 		<div className="flex flex-1 flex-wrap w-full h-full relative">
 			<Row>

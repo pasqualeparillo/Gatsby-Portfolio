@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'gatsby';
 import MediaQuery from 'react-responsive';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AnimationContext } from '../../components/store/animation';
-import { variant } from '../../components/store/variants';
+import { AnimationContext } from '../store/animation';
+import { variant } from '../store/variants';
 export default function ProjectTile() {
 	const { pageLocation, setPageLocation } = useContext(AnimationContext);
 	useEffect(() => {
@@ -20,7 +20,7 @@ export default function ProjectTile() {
 								className="flex items-center justify-center tracking-tighter  w-full p-4 relative text-black transform hover:bg-black overflow-hidden border-black hover:text-white "
 								style={{ height: '100%' }}
 							>
-								<AnimatePresence inital={false}>
+								<AnimatePresence>
 									{pageLocation === '/' && (
 										<motion.p
 											variants={variant}

@@ -1,14 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Work+Sans:700,800,900&display=swap");
 
 body {
-  overflow-y: hidden;
-  overflow-x: hidden;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 .transform {
-  transition: 0.2s all;
+	transition: 0.2s all;
 }
 div[role="group"][tabindex] {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+input::placeholder {
+	text-align: center;
+	opacity: 1;
 }

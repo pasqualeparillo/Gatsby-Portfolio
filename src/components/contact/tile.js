@@ -1,32 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'gatsby';
-import { AnimationContext } from '../../components/store/animation';
+import { AnimationContext } from '../store/animation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { animationDuration } from '../../components/store/animation';
-import { variant } from '../../components/store/variants';
-export function Tile({ title }) {
-	const { pageLocation } = useContext(AnimationContext);
+import { animationDuration } from '../store/animation';
 
-	return (
-		<AnimatePresence>
-			<motion.div
-				className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
-				key={pageLocation}
-				variants={variant}
-				initial={{ opacity: 0 }}
-				animate="enter"
-				exit="exit"
-			>
-				<div
-					className="flex items-center justify-center tracking-tighter w-full p-4  text-black relative hover:bg-black hover:text-white transform"
-					style={{ height: '100%' }}
-				>
-					<p className="font-extrabold uppercase whitespace-no-wrap text-5xl">{title}</p>
-				</div>
-			</motion.div>
-		</AnimatePresence>
-	);
-}
 export function CloseTile() {
 	const { pageLocation, setPageLocation } = useContext(AnimationContext);
 	useEffect(() => {
@@ -73,7 +50,7 @@ export function CloseTile() {
 		<Link className="h-full w-full" to="/">
 			<div className="flex flex-col bg-black h-full w-full absolute cursor-pointer overflow-hidden">
 				<AnimatePresence>
-					{pageLocation === '/projects' && (
+					{pageLocation === '/contact' && (
 						<ParentContainer>
 							<motion.div
 								initial="exit"
