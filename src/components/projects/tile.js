@@ -4,6 +4,8 @@ import { AnimationContext } from '../../components/store/animation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { animationDuration } from '../../components/store/animation';
 import { variant } from '../../components/store/variants';
+import MediaQuery from 'react-responsive';
+
 export function Tile({ title }) {
 	const { pageLocation } = useContext(AnimationContext);
 
@@ -21,7 +23,22 @@ export function Tile({ title }) {
 					className="flex items-center justify-center tracking-tighter w-full p-4  text-black relative hover:bg-black hover:text-white transform"
 					style={{ height: '100%' }}
 				>
-					<p className="font-extrabold uppercase whitespace-no-wrap text-5xl">{title}</p>
+					<MediaQuery minWidth={992}>
+						<p
+							className="font-extrabold uppercase whitespace-no-wrap"
+							style={{ fontSize: 'calc(25vw / 10)' }}
+						>
+							{title}
+						</p>
+					</MediaQuery>
+					<MediaQuery maxWidth={992}>
+						<p
+							className="font-extrabold uppercase whitespace-no-wrap"
+							style={{ fontSize: 'calc(25vw / 5)' }}
+						>
+							{title}
+						</p>
+					</MediaQuery>
 				</div>
 			</motion.div>
 		</AnimatePresence>

@@ -34,13 +34,19 @@ export default function IndexPage() {
 					</div>
 				</Square>
 				<Square wfourth="true">
-					<Tile title={'devrebase'} />
+					<MediaQuery minWidth={992}>
+						<Tile title={'devrebase'} />
+					</MediaQuery>
 				</Square>
 				<Square wfourth="true">
 					<Tile title={'portfolio'} />
 				</Square>
 
-				<Square wfourth="true" />
+				<Square wfourth="true">
+					<MediaQuery maxWidth={992}>
+						<Tile title={'devrebase'} />
+					</MediaQuery>
+				</Square>
 			</Row>
 			<Row>
 				<Square wfourth="true" />

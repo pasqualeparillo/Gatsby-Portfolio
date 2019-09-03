@@ -1,15 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Row, Square } from '../components/styled/container';
 import MediaQuery from 'react-responsive';
 import ContactTile from '../components/contact/contactTile';
 import ProjectTile from '../components/projects/projectTile';
 import { Link } from 'gatsby';
-import { AnimationContext } from '../components/store/animation';
-import { motion, AnimatePresence } from 'framer-motion';
-import { variant } from '../components/store/variants';
-export default function IndexPage() {
-	const { pageLocation } = useContext(AnimationContext);
 
+export default function IndexPage() {
 	return (
 		<div className="flex flex-1 flex-wrap w-full h-full relative">
 			<Row>
@@ -37,44 +33,7 @@ export default function IndexPage() {
 						</div>
 					</div>
 				</Square>
-				<Square wfourth="true" />
-				<Square wfourth="true">
-					<MediaQuery minWidth={992}>
-						<AnimatePresence>
-							<motion.div
-								className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
-								key={pageLocation}
-								variants={variant}
-								initial={{ opacity: 0 }}
-								animate="enter"
-								exit="exit"
-							>
-								<div
-									className="flex items-center justify-center tracking-tighter w-full p-4 bg-white text-black relative hover:bg-black hover:text-white transform"
-									style={{ height: '100%' }}
-								>
-									<p className="font-extrabold uppercase whitespace-no-wrap text-vw">About</p>
-								</div>
-							</motion.div>
-						</AnimatePresence>
-					</MediaQuery>
-					<MediaQuery maxWidth={992}>
-						<div className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer">
-							<div
-								className="flex items-center justify-center tracking-tighter w-full p-4 relative bg-white text-black hover:bg-black hover:text-white transform"
-								style={{ height: '100%' }}
-							>
-								<p
-									className="font-extrabold uppercase whitespace-no-wrap "
-									style={{ fontSize: '25vw' }}
-								>
-									A
-								</p>
-							</div>
-						</div>
-					</MediaQuery>
-				</Square>
-				<Square wfourth="true" />
+				<Square className="w-3/4" />
 			</Row>
 			<Row>
 				<Square wfourth="true" />
