@@ -37,7 +37,7 @@ export const Layout = ({ children, location }) => {
 						exit="exit"
 						style={{ transformStyle: 'preserve-3d' }}
 					>
-						<LayoutTransition />
+						<LayoutTransition location={location.pathname} />
 						{children}
 					</motion.div>
 				</AnimatePresence>
