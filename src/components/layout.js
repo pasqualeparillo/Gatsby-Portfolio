@@ -22,7 +22,7 @@ export const Layout = ({ children, location }) => {
 			<div className="flex flex-col min-h-screen w-full overflow-hidden">
 				<NavBar />
 				<AnimatePresence>
-					<LayoutTransition />
+					
 					<motion.div
 						className="flex flex-1 flex-col flex-grow justify-center min-h-screen"
 						key={location.pathname}
@@ -31,6 +31,7 @@ export const Layout = ({ children, location }) => {
 						exit="exit"
 						style={{ transformStyle: 'preserve-3d' }}
 					>
+						<LayoutTransition />
 						{children}
 					</motion.div>
 				</AnimatePresence>
