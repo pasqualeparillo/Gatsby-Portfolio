@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { AnimationContext } from '../store/animation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { animationDuration } from '../store/animation';
+import { animationDuration } from '../store/variants';
 
 export function CloseTile() {
 	const { pageLocation, setPageLocation } = useContext(AnimationContext);

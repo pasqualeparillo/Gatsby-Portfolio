@@ -15,5 +15,5 @@ div[role="group"][tabindex] {
 
 input::placeholder {
 	text-align: center;
-	opacity: 1;
+	opacity: 1 !important;
 }

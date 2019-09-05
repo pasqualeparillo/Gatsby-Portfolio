@@ -2,10 +2,12 @@ import React, { useEffect, useContext } from 'react';
 import { Row, Square } from '../components/styled/container';
 import { CloseTile } from '../components/contact/tile';
 import { AnimationContext } from '../components/store/animation';
+import { motion, AnimatePresence } from 'framer-motion';
+import { variant } from '../components/store/variants';
 import MediaQuery from 'react-responsive';
 
 export default function IndexPage() {
-	const { setPageLocation } = useContext(AnimationContext);
+	const { setPageLocation, pageLocation } = useContext(AnimationContext);
 	useEffect(() => {
 		setPageLocation('/contact');
 	});
@@ -16,48 +18,82 @@ export default function IndexPage() {
 					<Row>
 						<Square className="lg:w-1/4 w-full flex items-center justify-center">
 							<form className="w-full h-full flex justify-center items-center absolute">
-								<input
-									className="bg-transparent z-50 w-full h-full font-extrabold uppercase "
-									style={{ fontSize: 'calc(25vw / 5)' }}
-									type="text"
-									name="name"
-									placeholder="Phone"
-								/>
+								<AnimatePresence>
+									{pageLocation === '/contact' && (
+										<motion.input
+											className="bg-transparent z-50 w-full h-full font-extrabold uppercase "
+											style={{ fontSize: 'calc(25vw / 5)' }}
+											type="text"
+											name="name"
+											placeholder="Phone"
+											variants={variant}
+											initial={{ opacity: 0, y: 50 }}
+											animate="enter"
+											exit="exit"
+										/>
+									)}
+								</AnimatePresence>
 							</form>
 						</Square>
 						<Square className="lg:w-1/4 w-full overflow-hidden flex items-center justify-center">
 							<form className="w-full h-full flex justify-center items-center absolute">
-								<input
-									className="bg-transparent z-50 w-full h-full font-extrabold uppercase "
-									style={{ fontSize: 'calc(25vw / 5)' }}
-									type="email"
-									name="name"
-									placeholder="Email"
-								/>
+								<AnimatePresence>
+									{pageLocation === '/contact' && (
+										<motion.input
+											className="bg-transparent z-50 w-full h-full font-extrabold uppercase "
+											style={{ fontSize: 'calc(25vw / 5)' }}
+											type="email"
+											name="name"
+											placeholder="Email"
+											variants={variant}
+											initial={{ opacity: 0, y: 50 }}
+											animate="enter"
+											exit="exit"
+										/>
+									)}
+								</AnimatePresence>
 							</form>
 						</Square>
 						<Square className="lg:w-1/2 w-full overflow-hidden flex items-center justify-center">
 							<form className="w-full h-full flex justify-center items-center absolute">
-								<input
-									className="bg-transparent z-50 w-full h-full font-extrabold uppercase "
-									style={{ fontSize: 'calc(25vw / 5)' }}
-									type="text"
-									name="name"
-									placeholder="Message"
-								/>
+								<AnimatePresence>
+									{pageLocation === '/contact' && (
+										<motion.input
+											className="bg-transparent z-50 w-full h-full font-extrabold uppercase "
+											style={{ fontSize: 'calc(25vw / 5)' }}
+											type="text"
+											name="name"
+											placeholder="Message"
+											variants={variant}
+											initial={{ opacity: 0, y: 50 }}
+											animate="enter"
+											exit="exit"
+										/>
+									)}
+								</AnimatePresence>
 							</form>
 						</Square>
 					</Row>
 					<Row>
 						<Square className="w-1/2 overflow-hidden flex items-center justify-center border-white border-2">
-							<button className="flex flex-col bg-black h-full w-full items-center justify-center absolute overflow-hidden ">
-								<p
-									className="font-extrabold uppercase text-white whitespace-no-wrap"
-									style={{ fontSize: 'calc(25vw / 5)' }}
-								>
-									Submit
-								</p>
-							</button>
+							<AnimatePresence>
+								{pageLocation === '/contact' && (
+									<motion.button
+										className="flex flex-col bg-black h-full w-full items-center justify-center absolute overflow-hidden "
+										variants={variant}
+										initial={{ opacity: 0, y: 50 }}
+										animate="enter"
+										exit="exit"
+									>
+										<p
+											className="font-extrabold uppercase text-white whitespace-no-wrap"
+											style={{ fontSize: 'calc(25vw / 5)' }}
+										>
+											Submit
+										</p>
+									</motion.button>
+								)}
+							</AnimatePresence>
 						</Square>
 						<Square className="lg:w-1/4 w-1/2 overflow-hidden flex items-center justify-center">
 							<CloseTile />

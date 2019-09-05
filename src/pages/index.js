@@ -47,7 +47,7 @@ export default function IndexPage() {
 								className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
 								key={pageLocation}
 								variants={variant}
-								initial={{ opacity: 0 }}
+								initial={{ opacity: 0, y: 50 }}
 								animate="enter"
 								exit="exit"
 							>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import { motion, AnimatePresence } from 'framer-motion';
 import MediaQuery from 'react-responsive';
-import { AnimationContext, animationDuration } from '../../components/store/animation';
+import { AnimationContext } from '../../components/store/animation';
 import { variant } from '../../components/store/variants';
 export default function ContactTile() {
 	const { pageLocation, setPageLocation } = useContext(AnimationContext);
@@ -22,7 +22,7 @@ export default function ContactTile() {
 										className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
 										key={pageLocation}
 										variants={variant}
-										initial={{ opacity: 0 }}
+										initial={{ opacity: 0, y: 50 }}
 										animate="enter"
 										exit="exit"
 									>

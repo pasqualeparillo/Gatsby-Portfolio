@@ -24,7 +24,7 @@ export default function ProjectTile() {
 									{pageLocation === '/' && (
 										<motion.p
 											variants={variant}
-											initial={{ opacity: 0 }}
+											initial={{ opacity: 0, y: 50 }}
 											animate="enter"
 											exit="exit"
 											className="font-extrabold uppercase whitespace-no-wrap text-vw"

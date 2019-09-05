@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { AnimationContext } from '../../components/store/animation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { animationDuration } from '../../components/store/animation';
+import { animationDuration } from '../../components/store/variants';
 import { variant } from '../../components/store/variants';
 import MediaQuery from 'react-responsive';
 
@@ -15,7 +15,7 @@ export function Tile({ title }) {
 				className="flex flex-col h-full w-full content-end items-end justify-end absolute cursor-pointer overflow-hidden"
 				key={pageLocation}
 				variants={variant}
-				initial={{ opacity: 0 }}
+				initial={{ opacity: 0, y: 50 }}
 				animate="enter"
 				exit="exit"
 			>
