@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NavBar from './header/navBar';
+import NavBar from './navigation/navBar';
+import Logo from './navigation/logo';
 import { ContextProvider } from './store/state';
 import { AnimatePresence, motion } from 'framer-motion';
-import { animationDuration } from '../components/store/variants';
 import './layout.css';
 import './style.css';
 import LayoutTransition from './layoutTransition';
@@ -20,9 +20,9 @@ export const Layout = ({ children, location }) => {
 	return (
 		<ContextProvider>
 			<div className="flex flex-col min-h-screen w-full overflow-hidden">
+				<Logo />
 				<NavBar />
 				<AnimatePresence>
-					
 					<motion.div
 						className="flex flex-1 flex-col flex-grow justify-center min-h-screen"
 						key={location.pathname}
@@ -31,7 +31,6 @@ export const Layout = ({ children, location }) => {
 						exit="exit"
 						style={{ transformStyle: 'preserve-3d' }}
 					>
-						<LayoutTransition />
 						{children}
 					</motion.div>
 				</AnimatePresence>

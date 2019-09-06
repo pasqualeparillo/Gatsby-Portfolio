@@ -118,7 +118,7 @@ function TwoTransition() {
 		enter: {
 			x: ['-100%', '0%', '100%'],
 			opacity: 1,
-			backgroundColor: 'black',
+			backgroundColor: 'transparent',
 			transition: {
 				when: 'afterChildren',
 				times: [0.2, 0.8, 1],
@@ -128,7 +128,7 @@ function TwoTransition() {
 		},
 		exit: {
 			opacity: 1,
-			backgroundColor: 'black',
+			backgroundColor: 'transparent',
 			transition: {
 				when: 'afterChildren',
 				duration: 0.5
@@ -140,8 +140,7 @@ function TwoTransition() {
 			className="w-full h-full absolute overflow-x-hidden"
 			style={{
 				width: '100vw',
-				height: '100vh',
-				zIndex: 9999
+				height: '100vh'
 			}}
 			variants={square}
 			enter="enter"
