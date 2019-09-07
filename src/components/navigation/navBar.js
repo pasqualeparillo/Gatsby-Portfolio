@@ -46,7 +46,7 @@ export default function NavBar() {
   }
 
   return (
-    <>
+    <div>
       <MediaQuery minWidth={992}>
         <motion.div
           animate={open ? "open" : "closed"}
@@ -127,6 +127,6 @@ export default function NavBar() {
           </div>
         </motion.div>
       </MediaQuery>
-    </>
+    </div>
   )
 }

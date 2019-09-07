@@ -1,10 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import NavBar from "./navigation/navBar"
+import Logo from "./navigation/logo"
 import { ContextProvider } from "./store/state"
 import { AnimatePresence, motion } from "framer-motion"
 import "./layout.css"
 import "./style.css"
+import SocialLinks from "./navigation/socialLinks"
 import CopyRight from "./navigation/copyRight"
 
 export const Layout = ({ children, location }) => {
