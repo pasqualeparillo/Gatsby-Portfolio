@@ -45,9 +45,9 @@ export default function IndexPage() {
                   initial={{ x: "-100%" }}
                   animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                   transition={{
-                    duration: 0.8,
+                    duration: 1.2,
                     type: "spring",
-                    ease: [0.17, 0.41, 0.5, 0.67],
+                    ease: [0.17, 0.41, 0.2, 0.67],
                   }}
                   className="bg-black h-full w-full absolute"
                 />
@@ -55,7 +55,7 @@ export default function IndexPage() {
                   className=" font-black text-2xl pl-4 cursor-pointer"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 0.1 }}
+                  transition={{ delay: 0.3, duration: 0.1 }}
                 >
                   About
                 </motion.p>
@@ -67,10 +67,10 @@ export default function IndexPage() {
                   initial={{ x: "-100%" }}
                   animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                   transition={{
-                    duration: 0.8,
-                    delay: 0.1,
+                    duration: 1.2,
+                    delay: 0.15,
                     type: "spring",
-                    ease: [0.17, 0.41, 0.5, 0.67],
+                    ease: [0.17, 0.41, 0.2, 0.67],
                   }}
                   className="bg-black h-full w-full absolute"
                 />
@@ -90,10 +90,10 @@ export default function IndexPage() {
                   initial={{ x: "-100%" }}
                   animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                   transition={{
-                    duration: 0.8,
-                    delay: 0.2,
+                    duration: 1.2,
+                    delay: 0.3,
                     type: "spring",
-                    ease: [0.17, 0.41, 0.5, 0.67],
+                    ease: [0.17, 0.41, 0.2, 0.67],
                   }}
                   className="bg-black h-full w-full absolute"
                 />

@@ -9,6 +9,9 @@
 .transform {
   transition: 0.4s all;
 }
+body {
+  overflow: hidden;
+}
 div[role="group"][tabindex] {
   display: flex;
   flex-direction: column;

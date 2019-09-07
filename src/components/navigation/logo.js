@@ -1,13 +1,19 @@
 import React from "react"
 import Icon from "../../images/logo-3.svg"
 import MediaQuery from "react-responsive"
+import { motion } from "framer-motion"
 
 export default function Logo() {
   return (
-    <div className="z-50">
+    <motion.div
+      className="z-50 s"
+      initial={{ y: 50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <MediaQuery minWidth={992}>
         <div
-          className="h-20 w-40 top-0 border-2 border-black flex flex-wrap absolute mt-12 z-50 bg-teal-100 shadow "
+          className="h-20 w-40 top-0 border-2 border-black flex flex-wrap absolute mt-12 z-50 bg-teal-100 shadow-2xl"
           style={{ left: "46%" }}
         >
           <div className="w-1/2 flex flex-wrap justify-center items-center">
@@ -60,6 +66,6 @@ export default function Logo() {
           </div>
         </div>
       </MediaQuery>
-    </div>
+    </motion.div>
   )
 }
