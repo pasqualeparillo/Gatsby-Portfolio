@@ -7,6 +7,27 @@ export default function IndexPage() {
     setPageLocation("/")
   }, [])
 
+  const circle = {
+    size: {
+      scale: 2,
+      x: "-50%",
+      y: "-50%",
+      transition: {
+        duration: 1.8,
+        type: "spring",
+        stiffness: 25,
+        ease: [0.17, 0.67, 0.83, 0.67],
+      },
+    },
+    pulse: {
+      y: ["-50%", "-55%", "-50%"],
+      transition: {
+        loop: Infinity,
+        delay: 2,
+        duration: 4,
+      },
+    },
+  }
   return (
     <>
       <div className="flex flex-wrap-reverse w-full h-full relative">
@@ -19,8 +40,9 @@ export default function IndexPage() {
           </div>
           <div className="lg:w-2/3 w-full flex items-center justify-center flex-wrap z-20 bg-transparent z-50">
             <div className="flex lg:w-1/3 justify-center items-center h-full">
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden w-3/4">
                 <motion.div
+                  initial={{ x: "-100%" }}
                   animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                   transition={{
                     duration: 0.8,
@@ -40,8 +62,9 @@ export default function IndexPage() {
               </div>
             </div>
             <div className="flex lg:w-1/3 justify-center items-center h-full">
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden w-3/4">
                 <motion.div
+                  initial={{ x: "-100%" }}
                   animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                   transition={{
                     duration: 0.8,
@@ -62,8 +85,9 @@ export default function IndexPage() {
               </div>
             </div>
             <div className="flex lg:w-1/3 justify-center items-center h-full">
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden w-3/4">
                 <motion.div
+                  initial={{ x: "-100%" }}
                   animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                   transition={{
                     duration: 0.8,
@@ -146,14 +170,9 @@ export default function IndexPage() {
         </div>
         <motion.div
           className="absolute bg-red-500 rounded-full z-40 box-shadow__inset"
-          animate={{ scale: 2, x: "-50%", y: "-50%" }}
+          animate={["size", "pulse"]}
           initial={{ scale: 0, x: "-50%", y: "-50%" }}
-          transition={{
-            duration: 1.8,
-            type: "spring",
-            stiffness: 25,
-            ease: [0.17, 0.67, 0.83, 0.67],
-          }}
+          variants={circle}
           style={{
             left: "50%",
             top: "50%",
@@ -163,7 +182,7 @@ export default function IndexPage() {
         />
         <motion.div
           className="absolute bg-red-500 rounded-full z-30 shadow-2xl"
-          animate={{ scale: 2, x: "-50%", y: "-50%" }}
+          animate={["circle", "pulse"]}
           initial={{ scale: 0, x: "-50%", y: "-50%" }}
           transition={{
             duration: 1.8,
