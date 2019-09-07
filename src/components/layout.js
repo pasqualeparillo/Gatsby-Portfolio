@@ -21,10 +21,15 @@ export const Layout = ({ children, location }) => {
   return (
     <ContextProvider>
       <div className="flex flex-col min-h-screen w-full bg-white">
-        <NavBar />
-
-        <Logo />
-        <SocialLinks />
+        <>
+          <Logo />
+        </>
+        <>
+          <SocialLinks />
+        </>
+        <>
+          <NavBar />
+        </>
         <AnimatePresence>
           <motion.div
             className="flex flex-1 flex-col flex-grow justify-center min-h-screen"
@@ -37,6 +42,7 @@ export const Layout = ({ children, location }) => {
             {children}
           </motion.div>
         </AnimatePresence>
+        <CopyRight />
       </div>
     </ContextProvider>
   )
