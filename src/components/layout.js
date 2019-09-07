@@ -21,10 +21,10 @@ export const Layout = ({ children, location }) => {
   return (
     <ContextProvider>
       <div className="flex flex-col min-h-screen w-full bg-white">
-        <Logo />
         <NavBar />
+
+        <Logo />
         <SocialLinks />
-        <CopyRight />
         <AnimatePresence>
           <motion.div
             className="flex flex-1 flex-col flex-grow justify-center min-h-screen"
