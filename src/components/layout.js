@@ -21,6 +21,8 @@ export const Layout = ({ children, location }) => {
   return (
     <ContextProvider>
       <div className="flex flex-col min-h-screen w-full bg-white">
+        <Logo />
+        <SocialLinks />
         <NavBar />
         <AnimatePresence>
           <motion.div
@@ -29,6 +31,7 @@ export const Layout = ({ children, location }) => {
             variants={variants}
             animate="enter"
             exit="exit"
+            style={{ transformStyle: "preserve-3d" }}
           >
             {children}
           </motion.div>

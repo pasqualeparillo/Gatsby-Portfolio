@@ -46,13 +46,13 @@ export default function NavBar() {
   }
 
   return (
-    <div>
+    <div className="z-50 fixed left-0 bottom-0 ">
       <MediaQuery minWidth={992}>
         <motion.div
           animate={open ? "open" : "closed"}
           initial="closed"
           variants={desktopNav}
-          className="fixed left-0 bottom-0 z-50 bg-black flex justify-center overflow-y-hidden overflow-x-hidden transform hover:shadow-lg  cursor-pointer"
+          className="z-50 bg-black flex justify-center overflow-y-hidden overflow-x-hidden transform hover:shadow-lg  cursor-pointer"
           onClick={() => setIsOpen(!open)}
         >
           <div

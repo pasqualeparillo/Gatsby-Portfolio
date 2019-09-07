@@ -4,7 +4,7 @@ import MediaQuery from "react-responsive"
 
 export default function Logo() {
   return (
-    <>
+    <div className="z-50">
       <MediaQuery minWidth={992}>
         <div
           className="h-20 w-40 top-0 border-2 border-black flex flex-wrap absolute mt-12 z-50 bg-teal-100 shadow "
@@ -60,6 +60,6 @@ export default function Logo() {
           </div>
         </div>
       </MediaQuery>
-    </>
+    </div>
   )
 }
