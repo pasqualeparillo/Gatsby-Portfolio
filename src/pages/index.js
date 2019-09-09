@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'gatsby';
 import { AnimationContext } from '../components/store/animation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MdArrowForward } from 'react-icons/md';
@@ -31,7 +32,6 @@ export default function IndexPage() {
 			}
 		}
 	};
-	function setAnimationValues() {}
 	return (
 		<>
 			<div className="flex flex-wrap-reverse w-full h-full relative">
@@ -63,7 +63,9 @@ export default function IndexPage() {
 									onMouseEnter={() => setIndexHover(true)}
 									onMouseLeave={() => setIndexHover(false)}
 								>
-									About
+									<Link className="font__work-sans " to="/about">
+										About
+									</Link>
 								</motion.p>
 							</div>
 						</div>
@@ -150,14 +152,12 @@ export default function IndexPage() {
 							</div>
 							<div className="p-4 break-normal leading-none tracking-normal relative flex flex-grow-0">
 								<motion.p
-									className="relative font-black text-lg font__work-sans link-hover overflow-hidden -ml-4 pl-4 pr-4"
+									className="relative font-black text-lg font__work-sans"
 									initial={{ opacity: 0, y: 50 }}
 									animate={{ opacity: 1, y: 0 }}
 									transition={{ duration: 1, delay: 1.3, type: 'tween' }}
 								>
 									Explore more
-								</motion.p>
-								<div className="relative">
 									<motion.span
 										className="pl-12 -mt-1 text-3xl absolute"
 										animate={{ x: [20, 0, 20] }}
@@ -170,7 +170,8 @@ export default function IndexPage() {
 									>
 										<MdArrowForward />
 									</motion.span>
-								</div>
+								</motion.p>
+								<div className="relative"></div>
 							</div>
 						</div>
 					</div>
