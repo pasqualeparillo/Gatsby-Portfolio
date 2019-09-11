@@ -8,6 +8,7 @@ import './layout.css';
 import './style.css';
 import SocialLinks from './navigation/socialLinks';
 import CopyRight from './navigation/copyRight';
+import Square from './content/square';
 
 export const Layout = ({ children, location }) => {
 	const variants = {
@@ -15,7 +16,7 @@ export const Layout = ({ children, location }) => {
 			opacity: 1
 		},
 		exit: {
-			opacity: 0
+			opacity: 1
 		}
 	};
 	return (
@@ -34,6 +35,7 @@ export const Layout = ({ children, location }) => {
 						style={{ transformStyle: 'preserve-3d' }}
 					>
 						{children}
+						<Square location={location.pathname} />
 					</motion.div>
 				</AnimatePresence>
 				<CopyRight />

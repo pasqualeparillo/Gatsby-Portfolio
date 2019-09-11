@@ -1,37 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { AnimationContext } from '../components/store/animation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MdArrowForward } from 'react-icons/md';
 
 export default function IndexPage() {
-	const { setPageLocation, indexHover, setIndexHover } = useContext(AnimationContext);
-	const [hoverTextValue, setHoverTextValue] = useState('');
+	const { setPageLocation, setIndexHover } = useContext(AnimationContext);
 	useEffect(() => {
 		setPageLocation('/');
 	}, []);
 
-	const circle = {
-		size: {
-			scale: 2,
-			x: '-50%',
-			y: '-50%',
-			transition: {
-				duration: 1.8,
-				type: 'spring',
-				stiffness: 25,
-				ease: [0.17, 0.67, 0.83, 0.67]
-			}
-		},
-		pulse: {
-			y: ['-50%', '-55%', '-50%'],
-			transition: {
-				loop: Infinity,
-				delay: 2,
-				duration: 4
-			}
-		}
-	};
 	return (
 		<>
 			<div className="flex flex-wrap-reverse w-full h-full relative">
@@ -176,34 +154,6 @@ export default function IndexPage() {
 						</div>
 					</div>
 				</div>
-				<motion.div
-					className="absolute bg-red-500 z-40 shadow-2xl"
-					animate={['size', 'pulse']}
-					initial={{ scale: 0, x: '-50%', y: '-50%' }}
-					variants={circle}
-					style={{
-						left: '50%',
-						top: '50%',
-						height: '15vw',
-						width: '15vw'
-					}}
-				>
-					<AnimatePresence>
-						{indexHover && (
-							<motion.div
-								initial={{ y: 20, opacity: 0 }}
-								animate={{ y: 0, opacity: 1 }}
-								exit={{ opacity: 0, y: 20 }}
-								transition={{ duration: 0.4 }}
-								className="flex justify-center absolute w-1/4 right-0 bottom-0 bg-white pt-4 pb-4 pr-8 pl-8 shadow"
-								style={{ bottom: '-10%', right: '-10%' }}
-							>
-								<p>{hoverTextValue}</p>
-							</motion.div>
-						)}
-					</AnimatePresence>
-					{console.log(hoverTextValue)}
-				</motion.div>
 			</div>
 		</>
 	);
