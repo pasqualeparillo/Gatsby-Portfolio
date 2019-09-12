@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
-import { AnimationContext } from '../store/animation';
-import { motion } from 'framer-motion';
-
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'gatsby';
 export default function Square({ location }) {
 	switch (location) {
 		case '/':
@@ -68,19 +67,28 @@ function SquareIndex({ location }) {
 	}
 	animation();
 	return (
-		<motion.div
-			className="absolute bg-gray-1000 z-40 shadow-2xl"
-			animate={['size', 'pulse']}
-			variants={square}
-			initial={
-				location !== '/'
-					? { x: '-50%', y: '-50%', scale: 1, left: '50%', top: '50%' }
-					: { x: '-50%', y: '-50%', scale: 0, left: '50%', top: '50%' }
-			}
-			style={{
-				height: '30vw',
-				width: '30vw'
-			}}
-		></motion.div>
+		<AnimatePresence>
+			<motion.div
+				className="absolute bg-gray-1000 z-40 shadow-2xl"
+				animate={['size', 'pulse']}
+				key={location}
+				exit="exit"
+				enter="enter"
+				variants={square}
+				initial={
+					location !== '/'
+						? { x: '-50%', y: '-50%', scale: 1, left: '50%', top: '50%' }
+						: { x: '-50%', y: '-50%', scale: 0, left: '50%', top: '50%' }
+				}
+				style={{
+					height: '30vw',
+					width: '30vw'
+				}}
+			>
+				<Link to="/">
+					<button>Home</button>
+				</Link>
+			</motion.div>
+		</AnimatePresence>
 	);
 }
