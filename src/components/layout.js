@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useLayoutEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import NavBar from './navigation/navBar';
 import Logo from './navigation/logo';
@@ -27,7 +27,7 @@ export const Layout = ({ children, location }) => {
 				<NavBar />
 				<AnimatePresence>
 					<motion.div
-						className="flex flex-1 flex-col flex-grow justify-center min-h-screen"
+						className="flex flex-1 flex-col flex-grow justify-center min-h-screen overflow-auto"
 						key={location.pathname}
 						variants={variants}
 						animate="enter"

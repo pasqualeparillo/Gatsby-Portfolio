@@ -3,7 +3,7 @@ import tw from 'tailwind.macro';
 import { motion } from 'framer-motion';
 
 export const Square = styled(motion.div)`
-	${tw`lg:border-2 border border-black relative overflow-hidden`};
+	${tw`lg:border-2 border border-gray-1000 relative overflow-hidden`};
 	${props => props.wfourth && tw`lg:w-1/4 w-1/2`};
 	${props => props.rb && tw`border-l-0 border-t-0 border-b border-r`};
 	${props => props.lb && tw`border-l border-t-0 border-b border-r-0`};

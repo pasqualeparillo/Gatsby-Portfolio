@@ -6,8 +6,8 @@ export default function NavBar() {
 	const [open, setIsOpen] = useState(false);
 	const desktopNav = {
 		closed: {
-			width: 'calc(12.5vw - 2rem)',
-			height: 'calc(12.5vw - 2rem)',
+			width: '11vw',
+			height: '11vw',
 			transition: {
 				type: 'tween',
 				when: 'afterChildren',
@@ -52,7 +52,7 @@ export default function NavBar() {
 					animate={open ? 'open' : 'closed'}
 					initial="closed"
 					variants={desktopNav}
-					className="z-50 bg-black flex justify-center overflow-y-hidden overflow-x-hidden transform hover:shadow-lg cursor-pointer"
+					className="z-50 bg-gray-1000 flex justify-center overflow-y-hidden overflow-x-hidden transform hover:shadow-lg cursor-pointer"
 					onClick={() => setIsOpen(!open)}
 				>
 					<div
@@ -65,16 +65,16 @@ export default function NavBar() {
 						}}
 					>
 						<div className="w-1/2 flex justify-center items-center">
-							<p className="text-white font-black text-xs font__work-sans ">M</p>
+							<p className="text-white font-gray-1000 text-xs font__work-sans ">M</p>
 						</div>
 						<div className="w-1/2 flex justify-center items-center">
-							<p className="text-white font-black text-xs font__work-sans ">E</p>
+							<p className="text-white font-gray-1000 text-xs font__work-sans ">E</p>
 						</div>
 						<div className="w-1/2 flex justify-center items-center">
-							<p className="text-white font-black text-xs font__work-sans ">N</p>
+							<p className="text-white font-gray-1000 text-xs font__work-sans ">N</p>
 						</div>
 						<div className="w-1/2 flex justify-center items-center">
-							<p className="text-white font-black text-xs font__work-sans ">U</p>
+							<p className="text-white font-gray-1000 text-xs font__work-sans ">U</p>
 						</div>
 					</div>
 				</motion.div>
@@ -84,7 +84,7 @@ export default function NavBar() {
 					animate={open ? 'open' : 'closed'}
 					initial="closed"
 					variants={mobileNav}
-					className="fixed left-0 bottom-0 z-50 bg-black flex justify-center overflow-y-hidden overflow-x-hidden transform hover:shadow-lg cursor-pointer0"
+					className="fixed left-0 bottom-0 z-50 bg-gray-1000 flex justify-center overflow-y-hidden overflow-x-hidden transform hover:shadow-lg cursor-pointer0"
 					onClick={() => setIsOpen(!open)}
 				>
 					<div
@@ -97,16 +97,16 @@ export default function NavBar() {
 						}}
 					>
 						<div className="w-1/2 flex justify-center items-center">
-							<p className="text-white font-black text-xs font__work-sans ">M</p>
+							<p className="text-white font-gray-1000 text-xs font__work-sans ">M</p>
 						</div>
 						<div className="w-1/2 flex justify-center items-center">
-							<p className="text-white font-black text-xs font__work-sans ">E</p>
+							<p className="text-white font-gray-1000 text-xs font__work-sans ">E</p>
 						</div>
 						<div className="w-1/2 flex justify-center items-center">
-							<p className="text-white font-black text-xs font__work-sans ">N</p>
+							<p className="text-white font-gray-1000 text-xs font__work-sans ">N</p>
 						</div>
 						<div className="w-1/2 flex justify-center items-center">
-							<p className="text-white font-black text-xs font__work-sans ">U</p>
+							<p className="text-white font-gray-1000 text-xs font__work-sans ">U</p>
 						</div>
 					</div>
 				</motion.div>

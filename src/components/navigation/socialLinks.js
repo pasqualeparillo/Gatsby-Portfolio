@@ -33,17 +33,17 @@ export default function SocialLinks() {
 				<motion.div
 					variants={child}
 					initial={{ opacity: 0, y: 20 }}
-					className="w-10 h-10 border border-neon-900 bg-black shadow-2xl"
+					className="w-10 h-10 border border-neon-900 bg-gray-1000 shadow-2xl"
 				/>
 				<motion.div
 					variants={child}
 					initial={{ opacity: 0, y: 20 }}
-					className="w-10 h-10 border border-neon-900 bg-black shadow-2xl"
+					className="w-10 h-10 border border-neon-900 bg-gray-1000 shadow-2xl"
 				/>
 				<motion.div
 					variants={child}
 					initial={{ opacity: 0, y: 20 }}
-					className="w-10 h-10 border border-neon-900 bg-black shadow-2xl"
+					className="w-10 h-10 border border-neon-900 bg-gray-1000 shadow-2xl"
 				/>
 			</div>
 		</motion.div>

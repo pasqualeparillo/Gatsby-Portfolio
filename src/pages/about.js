@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AnimationContext } from '../components/store/animation';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AboutPage() {
 	const { setPageLocation } = useContext(AnimationContext);

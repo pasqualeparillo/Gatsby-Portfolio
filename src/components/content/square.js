@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AnimationContext } from '../store/animation';
 import { motion } from 'framer-motion';
 
 export default function Square({ location }) {
@@ -19,7 +20,7 @@ function SquareIndex({ location }) {
 			case '/':
 				return (square = {
 					size: {
-						scale: 2,
+						scale: 1,
 						x: '-50%',
 						y: '-50%',
 						transition: {
@@ -41,14 +42,23 @@ function SquareIndex({ location }) {
 			case '/about':
 				return (square = {
 					size: {
-						y: '0',
-						x: '-50%',
+						width: '78vw',
 						transition: {
-							duration: 1.8,
 							delay: 1,
 							type: 'spring',
-							stiffness: 25,
-							ease: [0.17, 0.67, 0.83, 0.67]
+							damping: 100,
+							ease: [0.17, 0.41, 0.2, 0.67]
+						}
+					},
+					pulse: {
+						top: '100%',
+						bottom: 0,
+						y: '-100%',
+						transition: {
+							delay: 2.2,
+							type: 'spring',
+							damping: 100,
+							ease: [0.17, 0.41, 0.2, 0.67]
 						}
 					}
 				});
@@ -58,19 +68,19 @@ function SquareIndex({ location }) {
 	}
 	animation();
 	return (
-		<>
-			<motion.div
-				className="absolute bg-red-500 z-40 shadow-2xl"
-				animate={['size', 'pulse']}
-				variants={square}
-				initial={{ x: '-50%', y: '-50%', scale: 0 }}
-				style={{
-					left: '50%',
-					top: '50%',
-					height: '15vw',
-					width: '15vw'
-				}}
-			/>
-		</>
+		<motion.div
+			className="absolute bg-gray-1000 z-40 shadow-2xl"
+			animate={['size', 'pulse']}
+			variants={square}
+			initial={
+				location !== '/'
+					? { x: '-50%', y: '-50%', scale: 1, left: '50%', top: '50%' }
+					: { x: '-50%', y: '-50%', scale: 0, left: '50%', top: '50%' }
+			}
+			style={{
+				height: '30vw',
+				width: '30vw'
+			}}
+		></motion.div>
 	);
 }
