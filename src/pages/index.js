@@ -9,14 +9,13 @@ export default function IndexPage() {
 	useEffect(() => {
 		setPageLocation('/');
 	}, []);
-	const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+	const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] };
 	const variants = {
-		initial: { scale: 0.9, opacity: 0 },
-		enter: { scale: 1, opacity: 1, transition },
+		initial: { scale: 0.9, opacity: 1 },
+		enter: { opacity: 1, transition },
 		exit: {
-			scale: 0.5,
 			opacity: 0,
-			transition: { duration: 1.5, ...transition }
+			transition: { duration: 1, ...transition }
 		}
 	};
 	const test = {
@@ -31,10 +30,10 @@ export default function IndexPage() {
 	return (
 		<motion.div
 			className="flex flex-wrap-reverse w-full h-full relative"
-			variants={test}
 			initial="exit"
 			animate="enter"
 			exit="exit"
+			variants={variants}
 		>
 			<div className="lg:w-1/2 w-full h-screen flex relative">
 				<div className="lg:w-2/3 w-full flex items-center justify-center flex-wrap z-20 bg-transparent z-50">

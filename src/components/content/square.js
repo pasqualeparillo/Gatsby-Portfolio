@@ -19,22 +19,29 @@ function SquareIndex({ location }) {
 			case '/':
 				return (square = {
 					size: {
-						scale: 1,
 						x: '-50%',
 						y: '-50%',
 						transition: {
-							duration: 1.8,
-							type: 'spring',
-							stiffness: 25,
-							ease: [0.17, 0.67, 0.83, 0.67]
+							duration: 0.4,
+							type: 'tween',
+							ease: [0.43, 0.13, 0.23, 0.96]
 						}
 					},
 					pulse: {
 						y: ['-50%', '-55%', '-50%'],
 						transition: {
 							loop: Infinity,
-							delay: 2,
+							delay: 1,
 							duration: 4
+						}
+					},
+					exit: {
+						x: '-50%',
+						y: '-50%',
+						transition: {
+							duration: 0.4,
+							type: 'tween',
+							ease: [0.43, 0.13, 0.23, 0.96]
 						}
 					}
 				});
@@ -43,10 +50,10 @@ function SquareIndex({ location }) {
 					size: {
 						width: '78vw',
 						transition: {
-							delay: 1,
-							type: 'spring',
-							damping: 100,
-							ease: [0.17, 0.41, 0.2, 0.67]
+							duration: 0.4,
+							delay: 0.5,
+							type: 'tween',
+							ease: [0.43, 0.13, 0.23, 0.96]
 						}
 					},
 					pulse: {
@@ -54,10 +61,30 @@ function SquareIndex({ location }) {
 						bottom: 0,
 						y: '-100%',
 						transition: {
-							delay: 2.2,
-							type: 'spring',
-							damping: 100,
-							ease: [0.17, 0.41, 0.2, 0.67]
+							duration: 0.4,
+							delay: 1.2,
+							type: 'tween',
+							ease: [0.43, 0.13, 0.23, 0.96]
+						}
+					},
+					exit: {
+						x: '-50%',
+						y: '-50%',
+						left: '50%',
+						top: '50%',
+						width: '30vw',
+						transition: {
+							duration: 0.4,
+							type: 'tween',
+							ease: [0.43, 0.13, 0.23, 0.96]
+						}
+					},
+					enter: {
+						opacity: 1,
+						transition: {
+							duration: 0.4,
+							type: 'tween',
+							ease: [0.43, 0.13, 0.23, 0.96]
 						}
 					}
 				});
@@ -67,7 +94,7 @@ function SquareIndex({ location }) {
 	}
 	animation();
 	return (
-		<AnimatePresence>
+		<AnimatePresence exitBeforeEnter>
 			<motion.div
 				className="absolute bg-gray-1000 z-40 shadow-2xl"
 				animate={['size', 'pulse']}
@@ -78,7 +105,7 @@ function SquareIndex({ location }) {
 				initial={
 					location !== '/'
 						? { x: '-50%', y: '-50%', scale: 1, left: '50%', top: '50%' }
-						: { x: '-50%', y: '-50%', scale: 0, left: '50%', top: '50%' }
+						: { x: '-50%', y: '-50%', scale: 1, left: '50%', top: '50%' }
 				}
 				style={{
 					height: '30vw',

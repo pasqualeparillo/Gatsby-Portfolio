@@ -6,7 +6,7 @@ export default function AboutPage() {
 	useEffect(() => {
 		setPageLocation('/about');
 	}, []);
-	const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+	const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] };
 	const variants = {
 		initial: { scale: 0.9, opacity: 0 },
 		enter: { scale: 1, opacity: 1, transition },
