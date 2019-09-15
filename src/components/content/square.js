@@ -87,6 +87,7 @@ function SquareIndex({ location }) {
               duration: 0.4,
               type: "tween",
               ease: [0.43, 0.13, 0.23, 0.96],
+              when: "afterChildren",
             },
           },
         })
@@ -99,6 +100,7 @@ function SquareIndex({ location }) {
               delay: 0.5,
               type: "tween",
               ease: [0.43, 0.13, 0.23, 0.96],
+              when: "afterChildren",
             },
           },
           pulse: {
@@ -108,6 +110,7 @@ function SquareIndex({ location }) {
               delay: 1.2,
               type: "tween",
               ease: [0.43, 0.13, 0.23, 0.96],
+              when: "afterChildren",
             },
           },
           exit: {
@@ -130,6 +133,7 @@ function SquareIndex({ location }) {
               duration: 0.4,
               type: "tween",
               ease: [0.43, 0.13, 0.23, 0.96],
+              when: "afterChildren",
             },
           },
         })

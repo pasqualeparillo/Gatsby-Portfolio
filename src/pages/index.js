@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { MdArrowForward } from "react-icons/md"
 
 export default function IndexPage() {
-  const { setPageLocation, setIndexHover } = useContext(AnimationContext)
+  const { setPageLocation } = useContext(AnimationContext)
   useEffect(() => {
     setPageLocation("/")
   }, [])
@@ -30,15 +30,13 @@ export default function IndexPage() {
       <div className="lg:w-1/2 w-full h-screen flex relative">
         <div className="lg:w-2/3 w-full flex items-center justify-center flex-wrap z-20 bg-transparent">
           <div className="flex lg:w-1/3 justify-center items-center h-full border-r-2 border-gray-1000 shadow-2xl">
-            <motion.div
-              className="relative overflow-hidden w-full flex justify-center "
-              variants={variants}
-            >
+            <div className="relative overflow-hidden w-full flex justify-center items-center overflow-hidden">
               <motion.div
                 initial={{ x: "-100%" }}
-                animate={{ x: ["-100%", "0%", "0%", "0%", "100%"] }}
+                animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                 transition={{
                   duration: 1.2,
+                  delay: 0.15,
                   type: "spring",
                   ease: [0.17, 0.41, 0.2, 0.67],
                 }}
@@ -49,20 +47,18 @@ export default function IndexPage() {
                   className="relative font-black text-2xl p-4 cursor-pointer font__work-sans link-hover overflow-hidden text-gray-1000"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.1 }}
-                  onMouseEnter={() => setIndexHover(true)}
-                  onMouseLeave={() => setIndexHover(false)}
+                  transition={{ delay: 0.4, duration: 0.1 }}
                 >
                   About
                 </motion.p>
               </Link>
-            </motion.div>
+            </div>
           </div>
           <div className="flex lg:w-1/3 justify-center items-center h-full border-r-2 border-gray-1000 shadow-2xl">
-            <div className="relative overflow-hidden w-full flex justify-center items-center">
+            <div className="relative overflow-hidden w-full flex justify-center items-center overflow-hidden">
               <motion.div
                 initial={{ x: "-100%" }}
-                animate={{ x: ["-100%", "0%", "0%", "0%", "100%"] }}
+                animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                 transition={{
                   duration: 1.2,
                   delay: 0.15,
@@ -84,10 +80,10 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="flex lg:w-1/3 justify-center items-center h-full ">
-            <div className="relative overflow-hidden w-full flex justify-center items-center">
+            <div className="relative overflow-hidden w-full flex justify-center items-center overflow-hidden">
               <motion.div
                 initial={{ x: "-100%" }}
-                animate={{ x: ["-100%", "0%", "0%", "0%", "100%"] }}
+                animate={{ x: ["-100%", "0%", "0%", "0%", "102%"] }}
                 transition={{
                   duration: 1.2,
                   delay: 0.3,
