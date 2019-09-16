@@ -12,7 +12,7 @@ export default function Logo() {
 			transition={{ duration: 1 }}
 		>
 			<MediaQuery minWidth={992}>
-				<div className="h-20 w-40 top-0 border-2 border-gray-1000 flex flex-wrap absolute mt-8 z-50  bg-neon-900 shadow-2xl mx-auto left-0 right-0">
+				<div className="h-16 w-40 top-0 border-2 border-gray-1000 flex flex-wrap absolute mt-4 z-40  bg-neon-900 shadow-2xl mx-auto left-0 right-0">
 					<div className="w-1/2 flex flex-wrap justify-center items-center">
 						<img
 							className="fill-current text-gray-1000 w-1/2 self-center flex items-center"

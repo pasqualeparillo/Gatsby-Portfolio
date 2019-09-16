@@ -14,3 +14,7 @@ export const Square = styled(motion.div)`
 export const Row = styled(motion.div)`
 	${tw`flex w-full flex-wrap overflow-hidden`};
 `;
+
+export const ProjectContainer = styled(motion.div)`
+	${tw`w-full border-b border-gray-1100 flex justify-between items-center pt-4 pb-4 cursor-pointer`};
+`;

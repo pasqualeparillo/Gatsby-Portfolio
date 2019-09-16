@@ -305,7 +305,7 @@ module.exports = {
       tighter: "-0.05em",
       tight: "-0.025em",
       normal: "0",
-      wide: "0.025em",
+      wide: "0.02em",
       wider: "0.05em",
       widest: "0.1em",
     },
@@ -315,6 +315,7 @@ module.exports = {
       snug: "1.375",
       normal: "1.5",
       relaxed: "1.625",
+      chill: "1.8",
       loose: "2",
     },
     listStyleType: {
