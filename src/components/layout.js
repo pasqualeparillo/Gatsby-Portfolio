@@ -8,7 +8,7 @@ import './layout.css';
 import './style.css';
 import SocialLinks from './navigation/socialLinks';
 import CopyRight from './navigation/copyRight';
-import Square from './content/square';
+import { SquareIndex } from './content/square';
 
 export const Layout = ({ children, location }) => {
 	return (
@@ -21,7 +21,7 @@ export const Layout = ({ children, location }) => {
 					<AnimatePresence exitBeforeEnter initial={false}>
 						{children}
 					</AnimatePresence>
-					<Square location={location.pathname} />
+					<SquareIndex location={location.pathname} />
 				</div>
 				<CopyRight />
 			</div>

@@ -5,10 +5,11 @@ import { motion } from 'framer-motion';
 import { MdArrowForward } from 'react-icons/md';
 
 export default function IndexPage() {
-	const { setPageLocation } = useContext(AnimationContext);
+	const { setPageLocation, setAboutActive } = useContext(AnimationContext);
 	useEffect(() => {
 		setPageLocation('/');
-	}, []);
+		setAboutActive(false);
+	});
 	const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] };
 	const variants = {
 		initial: { scale: 0.9, opacity: 1 },
@@ -162,7 +163,6 @@ export default function IndexPage() {
 									</motion.span>
 								</motion.p>
 							</Link>
-							<div className="relative"></div>
 						</div>
 					</div>
 				</div>
