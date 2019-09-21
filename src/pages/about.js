@@ -1,6 +1,7 @@
 import React, { useContext, useLayoutEffect } from "react"
 import { AnimationContext } from "../components/store/animation"
 import { motion } from "framer-motion"
+import AboutContent from "../components/about/aboutContent"
 export default function AboutPage() {
   const {
     setPageLocation,
@@ -15,13 +16,17 @@ export default function AboutPage() {
     setPageLocation("/about")
   })
 
-  const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
   const variants = {
     initial: { opacity: 0 },
-    enter: { opacity: 1, transition },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
     exit: {
       opacity: 0,
-      transition: { duration: 1.5, ...transition },
+      transition: { duration: 1 },
     },
   }
   return (
@@ -31,6 +36,9 @@ export default function AboutPage() {
       animate="enter"
       exit="exit"
       variants={variants}
-    ></motion.div>
+      style={{ zIndex: 9999 }}
+    >
+      <AboutContent />
+    </motion.div>
   )
 }

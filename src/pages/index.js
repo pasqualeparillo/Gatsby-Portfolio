@@ -10,6 +10,9 @@ export default function IndexPage() {
     setAboutActive,
     setWorkActive,
     setContactActive,
+    setHoverActive,
+    setContent,
+    content,
   } = useContext(AnimationContext)
   useEffect(() => {
     setPageLocation("/")
@@ -26,7 +29,14 @@ export default function IndexPage() {
       transition: { duration: 1, ...transition },
     },
   }
-
+  function enter(text) {
+    setHoverActive(false)
+    setContent([text])
+  }
+  function leave(text) {
+    setHoverActive(true)
+    setContent([text])
+  }
   return (
     <motion.div
       className="flex flex-wrap-reverse w-full h-full relative"
@@ -37,7 +47,7 @@ export default function IndexPage() {
     >
       <div className="lg:w-1/2 w-full h-screen flex relative">
         <div className="lg:w-2/3 w-full flex items-center justify-center flex-wrap z-20 bg-transparent">
-          <div className="flex lg:w-1/3 justify-center items-center h-full border-r-2 border-gray-1000 shadow-2xl">
+          <div className="flex lg:w-1/3 justify-center items-center h-full  ">
             <div className="relative overflow-hidden w-full flex justify-center items-center overflow-hidden">
               <motion.div
                 initial={{ x: "-100%" }}
@@ -52,17 +62,19 @@ export default function IndexPage() {
               />
               <Link className="font__work-sans " to="/about">
                 <motion.p
-                  className="relative font-black text-2xl p-4 cursor-pointer font__work-sans link-hover overflow-hidden text-gray-1000"
+                  className="relative font-black text-4xl p-4 cursor-pointer font__work-sans link-hover overflow-hidden text-gray-1000"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.1 }}
+                  onMouseEnter={() => enter("About")}
+                  onMouseLeave={() => leave(null)}
                 >
                   About
                 </motion.p>
               </Link>
             </div>
           </div>
-          <div className="flex lg:w-1/3 justify-center items-center h-full border-r-2 border-gray-1000 shadow-2xl">
+          <div className="flex lg:w-1/3 justify-center items-center h-full  ">
             <div className="relative overflow-hidden w-full flex justify-center items-center overflow-hidden">
               <motion.div
                 initial={{ x: "-100%" }}
@@ -77,10 +89,12 @@ export default function IndexPage() {
               />
               <Link className="font__work-sans " to="/work">
                 <motion.p
-                  className="relative font-black text-2xl p-4 cursor-pointer font__work-sans link-hover overflow-hidden text-gray-1000"
+                  className="relative font-black text-4xl p-4 cursor-pointer font__work-sans link-hover overflow-hidden text-gray-1000"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.1 }}
+                  onMouseEnter={() => enter("Work")}
+                  onMouseLeave={() => leave(null)}
                 >
                   Work
                 </motion.p>
@@ -102,10 +116,12 @@ export default function IndexPage() {
               />
               <Link to="/contact">
                 <motion.p
-                  className="relative font-black text-2xl p-4 cursor-pointer font__work-sans link-hover overflow-hidden text-gray-1000"
+                  className="relative font-black text-4xl p-4 cursor-pointer font__work-sans link-hover overflow-hidden text-gray-1000"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.1 }}
+                  onMouseEnter={() => enter("Contact")}
+                  onMouseLeave={() => leave(null)}
                 >
                   Contact
                 </motion.p>

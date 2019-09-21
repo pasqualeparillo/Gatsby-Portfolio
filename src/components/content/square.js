@@ -1,38 +1,30 @@
 import React, { useContext, useEffect } from "react"
 import { motion, useAnimation, AnimatePresence } from "framer-motion"
-import AboutContent from "../about/aboutContent"
 import { AnimationContext } from "../store/animation"
-import ContactContent from "../contact/contactContent"
-import WorkContent from "../work/WorkContent"
 
 export function SquareIndex({ location }) {
-  const { aboutActive, workActive, contactActive, pageLocation } = useContext(
-    AnimationContext
-  )
+  const { pageLocation, hoverActive, content } = useContext(AnimationContext)
   const animation = useAnimation()
   useEffect(() => {
     if (location === "/") {
       animation.start({
-        x: "-50%",
-        y: "-50%",
-        top: "50%",
-        left: "50%",
-        height: "30vw",
-        width: "30vw",
+        borderRadius: "9999px",
+        filter: "blur(15px)",
+        scale: 1,
         transition: {
-          delay: 1,
-          duration: 0.5,
+          duration: 0.2,
+          type: "spring",
           when: "afterChildren",
         },
       })
     } else if (location === "/about") {
       animation.start({
-        top: "100%",
-        bottom: 0,
-        y: "-100%",
-        width: "78vw",
+        borderRadius: "0px",
+        filter: "blur(0px)",
+        scale: 4,
         transition: {
           duration: 0.5,
+          type: "tween",
           when: "beforeChildren",
         },
       })
@@ -66,9 +58,28 @@ export function SquareIndex({ location }) {
 
   return (
     <motion.div
-      className="absolute bg-gray-1000 z-50 shadow-2xl"
+      className="absolute bg-gray-1000 z-50 shadow-2xl rounded-full transform square"
+      style={
+        hoverActive
+          ? animation.start({
+              filter: "blur(25px)",
+              transition: {
+                type: "tween",
+                duration: 0.2,
+              },
+            })
+          : animation.start({
+              filter: "blur(0px)",
+              transition: {
+                type: "tween",
+                duration: 0.2,
+              },
+            })
+      }
       animate={animation}
       initial={{
+        filter: "blur(15px)",
+        scale: 1,
         x: "-50%",
         y: "-50%",
         top: "50%",
@@ -77,9 +88,22 @@ export function SquareIndex({ location }) {
         width: "30vw",
       }}
     >
-      <AnimatePresence>{aboutActive && <AboutContent />}</AnimatePresence>
-      <AnimatePresence>{workActive && <WorkContent />}</AnimatePresence>
-      <AnimatePresence>{contactActive && <ContactContent />}</AnimatePresence>
+      <div
+        className="relative rounded-full bg-transparent flex justify-center items-end "
+        style={{ height: "30vw", width: "30vw" }}
+      >
+        <AnimatePresence>
+          <motion.p
+            key={content}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { delay: 1 } }}
+            exit={{ opacity: 0 }}
+            className="absolute text-10vw text-neon-900 font-black uppercase font__work-sans leading-none"
+          >
+            {content}
+          </motion.p>
+        </AnimatePresence>
+      </div>
     </motion.div>
   )
 }
