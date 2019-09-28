@@ -8,11 +8,13 @@ export default function AboutPage() {
     setAboutActive,
     setWorkActive,
     setContactActive,
+    setIndexActive,
   } = useContext(AnimationContext)
   useLayoutEffect(() => {
     setAboutActive(true)
     setContactActive(false)
     setWorkActive(false)
+    setIndexActive(false)
     setPageLocation("/about")
   })
 
@@ -21,6 +23,7 @@ export default function AboutPage() {
     enter: {
       opacity: 1,
       transition: {
+        delay: 1,
         duration: 1,
       },
     },
@@ -31,12 +34,11 @@ export default function AboutPage() {
   }
   return (
     <motion.div
-      className="flex flex-wrap-reverse w-full h-full relative "
+      className="flex flex-wrap-reverse w-full h-full relative bg-gray-1000 flex-1 justify-center z-50 "
       initial="exit"
       animate="enter"
       exit="exit"
       variants={variants}
-      style={{ zIndex: 9999 }}
     >
       <AboutContent />
     </motion.div>

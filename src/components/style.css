@@ -5,15 +5,14 @@
 html {
   overflow: scroll;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 ::-webkit-scrollbar {
   width: 0px; /* Remove scrollbar space */
   background: transparent; /* Optional: just make scrollbar invisible */
 }
 /* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-  background: #ff0000;
-}
+
 .font__work-sans {
   font-family: "Work Sans", sans-serif;
 }

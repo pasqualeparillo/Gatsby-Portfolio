@@ -7,15 +7,16 @@ import { MdArrowForward } from "react-icons/md"
 export default function IndexPage() {
   const {
     setPageLocation,
+    setIndexActive,
     setAboutActive,
     setWorkActive,
     setContactActive,
     setHoverActive,
     setContent,
-    content,
   } = useContext(AnimationContext)
   useEffect(() => {
     setPageLocation("/")
+    setIndexActive(true)
     setWorkActive(false)
     setContactActive(false)
     setAboutActive(false)
@@ -39,7 +40,7 @@ export default function IndexPage() {
   }
   return (
     <motion.div
-      className="flex flex-wrap-reverse w-full h-full relative"
+      className="flex flex-wrap-reverse w-full h-full relative bg-gray-150"
       initial="exit"
       animate="enter"
       exit="exit"
@@ -131,7 +132,7 @@ export default function IndexPage() {
         </div>
       </div>
       <div className="lg:w-1/2 w-full flex justify-center flex-wrap items-end lg:pl-10 z-20 h-screen">
-        <div className="flex lg:w-3/5 justify-center items-center h-full lg:ml-48 tracking-tighter">
+        <div className="flex lg:w-1/2 justify-center items-center h-full lg:ml-48 tracking-tighter">
           <div className="flex flex-col w-full flex-wrap">
             <div className="p-4 break-normal leading-none tracking-tighter">
               <motion.h1
@@ -151,9 +152,10 @@ export default function IndexPage() {
                 Web Developer
               </motion.p>
             </div>
+
             <div className="p-4 break-normal  tracking-normal w-5/6">
               <motion.p
-                className=" font__work-sans text-gray-1000"
+                className="text-xl font__work-sans text-gray-1000 "
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1.2 }}
