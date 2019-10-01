@@ -45,7 +45,7 @@ export default function WorkContent() {
         >
           <div className="flex flex-col flex-wrap w-full ">
             <div className="flex flex-col w-8/12 pb-12">
-              <h2 className="text-white font__work-sans text-5xl font-semibold">
+              <h2 className="text-white   text-5xl font-semibold">
                 Work
               </h2>
             </div>
@@ -61,10 +61,10 @@ export default function WorkContent() {
                       key={id}
                       initial={{ opacity: 0, y: 50 }}
                     >
-                      <p className="uppercase text-xl font__work-sans">
+                      <p className="uppercase text-xl  ">
                         Project Title
                       </p>
-                      <p className="uppercase text-xs font__work-sans">
+                      <p className="uppercase text-xs  ">
                         Interactive Website - Project Description
                       </p>
                       <WorkArrow styles={"fill-current"} />
