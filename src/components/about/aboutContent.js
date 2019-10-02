@@ -36,7 +36,13 @@ export default function AboutContent() {
 						animate="enter"
 						exit="exit"
 					>
-						<div className="flex">
+						<div className="flex text-white">
+							<svg id="ico-btn-back w-16 h-16 fill-current" viewBox="0 0 84 84">
+								<path
+									clip-rule="evenodd"
+									d="M28.396 17.146H79V1H1v78h16.146V28.396l54.01 54.01 11.25-11.25-54.01-54.01z"
+								></path>
+							</svg>
 							<div className="flex flex-col">
 								<p className="lg:text-6vw text-3xl uppercase text-white leading-none">Hey there, I'm</p>
 								<p className="lg:text-6vw text-3xl uppercase text-gray-400 leading-none">

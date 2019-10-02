@@ -56,3 +56,6 @@ body {
 	margin-bottom: 0;
 	line-height: .9;
 }
+.mix-blend-difference {
+	mix-blend-mode: difference;
+}

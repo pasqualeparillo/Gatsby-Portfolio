@@ -41,14 +41,14 @@ export default function IndexPage() {
 		<>
 			<MediaQuery minWidth={992}>
 				<motion.div
-					className="flex lg:flex-row flex-col flex-wrap w-full h-full relative bg-black flex-1"
+					className="flex lg:flex-row flex-col flex-wrap relative bg-black flex-1"
 					initial="exit"
 					animate="enter"
 					exit="exit"
 					variants={variants}
 					onMouseMove={e => setMouseCoords({ x: e.clientX, y: e.clientY })}
 				>
-					<div className="w-full flex  flex-1 flex-grow justify-center items-center test-style z-1000 text-white">
+					<div className="w-full flex flex-1 flex-grow justify-center items-center test-style z-1000 text-white mix-blend-difference">
 						<motion.p
 							animate={{ x: mouseCoords.x / -20, opacity: 1 }}
 							transition={{ duration: 2, ease: 'linear' }}
@@ -57,7 +57,7 @@ export default function IndexPage() {
 							Creative
 						</motion.p>
 					</div>
-					<div className="w-full flex  flex-1 flex-grow justify-center items-center test-style z-1000 text-white ">
+					<div className="w-full flex flex-1 flex-grow justify-center items-center test-style z-1000 text-white mix-blend-difference">
 						<motion.p
 							animate={{ x: mouseCoords.x / 20 }}
 							transition={{ duration: 2, ease: 'linear' }}
@@ -94,7 +94,7 @@ export default function IndexPage() {
 					variants={variants}
 					onMouseMove={e => setMouseCoords({ x: e.clientX, y: e.clientY })}
 				>
-					<div className="w-full flex  flex-1 flex-grow justify-center items-end index-mobile z-1000 text-white">
+					<div className="w-full flex  flex-1 flex-grow justify-center items-end index-mobile z-1000 text-white mix-blend-difference">
 						<motion.p
 							animate={{ x: mouseCoords.x / -20, opacity: 1 }}
 							transition={{ duration: 2, ease: 'linear' }}
@@ -103,7 +103,7 @@ export default function IndexPage() {
 							Creative
 						</motion.p>
 					</div>
-					<div className="w-full flex  flex-1 flex-grow justify-center items-center index-mobile z-1000 text-white ">
+					<div className="w-full flex  flex-1 flex-grow justify-center items-center index-mobile z-1000 text-white mix-blend-difference">
 						<motion.p
 							animate={{ x: mouseCoords.x / 20 }}
 							transition={{ duration: 2, ease: 'linear' }}
@@ -113,19 +113,19 @@ export default function IndexPage() {
 						</motion.p>
 					</div>
 					<div className="w-full flex p-4 justify-center" style={{ height: '20vw' }}>
-						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white mix-blend-difference">
 							<Link className="relative overflow-hidden" to="/about">
 								<p className="uppercase link-hover text-2xl">About</p>
 							</Link>
 						</div>
-						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white mix-blend-difference">
 							<Link className="relative overflow-hidden" to="/work">
-								<p className="uppercase link-hover text-2xl">Work</p>
+								<p className="uppercase link-hover text-2xl ">Work</p>
 							</Link>
 						</div>
-						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white mix-blend-difference">
 							<Link className="relative overflow-hidden " to="/contact">
-								<p className="uppercase link-hover text-2xl">Contact</p>
+								<p className="uppercase link-hover text-2xl ">Contact</p>
 							</Link>
 						</div>
 					</div>

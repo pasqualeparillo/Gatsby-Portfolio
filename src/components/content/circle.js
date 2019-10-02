@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState, useRef, useLayoutEffect } from 'react';
 import MediaQuery from 'react-responsive';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { AnimationContext } from '../store/animation';
@@ -6,6 +6,11 @@ import { AnimationContext } from '../store/animation';
 export function SquareIndex({ location }) {
 	const { pageLocation, indexActive, mouseCoords } = useContext(AnimationContext);
 	const animation = useAnimation();
+	const [position, setPosition] = useState(0);
+	const circleRef = useRef();
+	useLayoutEffect(() => {
+		setPosition(circleRef.current.getBoundingClientRect());
+	}, [circleRef.current]);
 	useEffect(() => {
 		if (location === '/') {
 			animation.start({
@@ -64,7 +69,8 @@ export function SquareIndex({ location }) {
 		<>
 			<MediaQuery minWidth={992}>
 				<motion.div
-					className="absolute bg-gray-1000 rounded-full overflow-hidden"
+					ref={circleRef}
+					className="absolute bg-black rounded-full"
 					animate={animation}
 					initial={{
 						scale: 1,
@@ -81,20 +87,21 @@ export function SquareIndex({ location }) {
 							<motion.div
 								initial={{ opacity: 1 }}
 								animate={{
-									boxShadow: `inset 0px 40px 80px ${mouseCoords.y / 20}px rgba(255,255,255,1)`,
-									x: mouseCoords.x / 50,
-									y: mouseCoords.y / 50
+									x: (mouseCoords.x - position.x) / 18,
+									y: (mouseCoords.y - position.y) / 18
 								}}
 								exit={{ opacity: 0 }}
-								className="w-full h-full absolute rounded-full"
+								className="w-full h-full absolute bg-white rounded-full"
 							/>
 						)}
+						{console.log(position.x)}
 					</AnimatePresence>
 				</motion.div>
 			</MediaQuery>
 			<MediaQuery maxWidth={992}>
 				<motion.div
-					className="absolute bg-gray-1000 rounded-full overflow-hidden"
+					className="absolute bg-black rounded-full"
+					ref={circleRef}
 					animate={animation}
 					initial={{
 						scale: 1,
@@ -111,12 +118,11 @@ export function SquareIndex({ location }) {
 							<motion.div
 								initial={{ opacity: 1 }}
 								animate={{
-									boxShadow: `inset 0px 40px 80px ${mouseCoords.y / 20}px rgba(255,255,255,1)`,
-									x: mouseCoords.x / 50,
-									y: mouseCoords.y / 50
+									x: (mouseCoords.x - position.x) / 18,
+									y: (mouseCoords.y - position.y) / 18
 								}}
 								exit={{ opacity: 0 }}
-								className="w-full h-full absolute rounded-full"
+								className="w-full h-full absolute rounded-full bg-white"
 							/>
 						)}
 					</AnimatePresence>

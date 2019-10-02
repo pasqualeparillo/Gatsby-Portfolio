@@ -6,7 +6,7 @@ import { ContextProvider } from './store/state';
 import { AnimatePresence } from 'framer-motion';
 import './layout.css';
 import './style.css';
-import { SquareIndex } from './content/square';
+import { SquareIndex } from './content/circle';
 
 export const Layout = ({ children, location }) => {
 	return (

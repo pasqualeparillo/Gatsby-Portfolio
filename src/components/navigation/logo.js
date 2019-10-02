@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from '../../images/logo-3.svg';
 import MediaQuery from 'react-responsive';
 import { motion } from 'framer-motion';
 

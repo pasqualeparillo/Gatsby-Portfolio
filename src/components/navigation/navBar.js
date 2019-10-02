@@ -24,26 +24,6 @@ export default function NavBar() {
 			}
 		}
 	};
-	const mobileNav = {
-		closed: {
-			width: '6rem',
-			height: '6rem',
-			transition: {
-				type: 'tween',
-				when: 'afterChildren',
-				staggerChildren: 0.1
-			}
-		},
-		open: {
-			width: '100vw',
-			height: '100vh',
-			transition: {
-				type: 'tween',
-				when: 'beforeChildren',
-				staggerChildren: 0.1
-			}
-		}
-	};
 
 	return (
 		<div className="z-1000 fixed left-0 lg:bottom-0 top-0" onClick={() => setIsOpen(!open)}>
