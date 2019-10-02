@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import MediaQuery from 'react-responsive';
 import { Link } from 'gatsby';
 import { AnimationContext } from '../components/store/animation';
 import { motion } from 'framer-motion';
@@ -37,49 +38,99 @@ export default function IndexPage() {
 	};
 
 	return (
-		<motion.div
-			className="flex flex-wrap w-full h-full relative bg-black flex-1"
-			initial="exit"
-			animate="enter"
-			exit="exit"
-			variants={variants}
-			onMouseMove={e => setMouseCoords(e.clientX)}
-		>
-			<div className="w-full flex  flex-1 flex-grow justify-center items-center test-style z-1000 text-white">
-				<motion.p
-					animate={{ x: mouseCoords / -20 }}
-					transition={{ duration: 2, ease: 'linear' }}
-					className="uppercase -ml-40 tracking-tighter"
+		<>
+			<MediaQuery minWidth={992}>
+				<motion.div
+					className="flex lg:flex-row flex-col flex-wrap w-full h-full relative bg-black flex-1"
+					initial="exit"
+					animate="enter"
+					exit="exit"
+					variants={variants}
+					onMouseMove={e => setMouseCoords({ x: e.clientX, y: e.clientY })}
 				>
-					Creative
-				</motion.p>
-			</div>
-			<div className="w-full flex  flex-1 flex-grow justify-center items-center test-style z-1000 text-white ">
-				<motion.p
-					animate={{ x: mouseCoords / 20 }}
-					transition={{ duration: 2, ease: 'linear' }}
-					className="uppercase ml-24 tracking-tighter"
+					<div className="w-full flex  flex-1 flex-grow justify-center items-center test-style z-1000 text-white">
+						<motion.p
+							animate={{ x: mouseCoords.x / -20, opacity: 1 }}
+							transition={{ duration: 2, ease: 'linear' }}
+							className="uppercase -ml-40 tracking-tighter"
+						>
+							Creative
+						</motion.p>
+					</div>
+					<div className="w-full flex  flex-1 flex-grow justify-center items-center test-style z-1000 text-white ">
+						<motion.p
+							animate={{ x: mouseCoords.x / 20 }}
+							transition={{ duration: 2, ease: 'linear' }}
+							className="uppercase ml-24 tracking-tighter"
+						>
+							Developer
+						</motion.p>
+					</div>
+					<div className="w-full flex" style={{ marginLeft: 'calc(11vw + 1rem)', height: '11vw' }}>
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+							<Link className="relative p-4 overflow-hidden" to="/about">
+								<p className="uppercase link-hover text-2xl">About</p>
+							</Link>
+						</div>
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+							<Link className="relative p-4 overflow-hidden" to="/work">
+								<p className="uppercase link-hover text-2xl">Work</p>
+							</Link>
+						</div>
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+							<Link className="relative p-4 overflow-hidden " to="/contact">
+								<p className="uppercase link-hover text-2xl">Contact</p>
+							</Link>
+						</div>
+					</div>
+				</motion.div>
+			</MediaQuery>
+			<MediaQuery maxWidth={992}>
+				<motion.div
+					className="flex lg:flex-row flex-col flex-wrap w-full h-full relative bg-black flex-1"
+					initial="exit"
+					animate="enter"
+					exit="exit"
+					variants={variants}
+					onMouseMove={e => setMouseCoords({ x: e.clientX, y: e.clientY })}
 				>
-					Developer
-				</motion.p>
-			</div>
-			<div className="w-full flex" style={{ marginLeft: 'calc(11vw + 1rem)', height: '11vw' }}>
-				<div className="w-1/3 flex justify-center items-center z-1000 text-white">
-					<Link className="relative p-4 overflow-hidden" to="/about">
-						<p className="uppercase link-hover">About</p>
-					</Link>
-				</div>
-				<div className="w-1/3 flex justify-center items-center z-1000 text-white">
-					<Link className="relative p-4 overflow-hidden" to="/work">
-						<p className="uppercase link-hover">Work</p>
-					</Link>
-				</div>
-				<div className="w-1/3 flex justify-center items-center z-1000 text-white">
-					<Link className="relative p-4 overflow-hidden" to="/contact">
-						<p className="uppercase link-hover">Contact</p>
-					</Link>
-				</div>
-			</div>
-		</motion.div>
+					<div className="w-full flex  flex-1 flex-grow justify-center items-end index-mobile z-1000 text-white">
+						<motion.p
+							animate={{ x: mouseCoords.x / -20, opacity: 1 }}
+							transition={{ duration: 2, ease: 'linear' }}
+							className="uppercase tracking-tighter"
+						>
+							Creative
+						</motion.p>
+					</div>
+					<div className="w-full flex  flex-1 flex-grow justify-center items-center index-mobile z-1000 text-white ">
+						<motion.p
+							animate={{ x: mouseCoords.x / 20 }}
+							transition={{ duration: 2, ease: 'linear' }}
+							className="uppercase tracking-tighter"
+						>
+							Developer
+						</motion.p>
+					</div>
+					<div className="w-full flex p-4 justify-center" style={{ height: '20vw' }}>
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+							<Link className="relative overflow-hidden" to="/about">
+								<p className="uppercase link-hover text-2xl">About</p>
+							</Link>
+						</div>
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+							<Link className="relative overflow-hidden" to="/work">
+								<p className="uppercase link-hover text-2xl">Work</p>
+							</Link>
+						</div>
+						<div className="w-1/3 flex justify-center items-center z-1000 text-white">
+							<Link className="relative overflow-hidden " to="/contact">
+								<p className="uppercase link-hover text-2xl">Contact</p>
+							</Link>
+						</div>
+					</div>
+				</motion.div>
+			</MediaQuery>
+		</>
 	);
 }

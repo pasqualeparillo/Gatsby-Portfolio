@@ -21,13 +21,13 @@ export default function AboutContent() {
 						<MediaQuery minWidth={992}>
 							<h1
 								style={{ transform: 'rotate(90deg)' }}
-								className="text-white text-12vw absolute uppercase  "
+								className="text-white text-11vw absolute uppercase  "
 							>
 								About
 							</h1>
 						</MediaQuery>
 						<MediaQuery maxWidth={992}>
-							<h1 className="text-white text-12vw  uppercase  ">About</h1>
+							<h1 className="text-white text-11vw uppercase">About</h1>
 						</MediaQuery>
 					</div>
 					<motion.div
@@ -38,10 +38,8 @@ export default function AboutContent() {
 					>
 						<div className="flex">
 							<div className="flex flex-col">
-								<p className="lg:text-12vw text-3xl uppercase text-white   leading-none">
-									Hey there, I'm
-								</p>
-								<p className="lg:text-12vw text-3xl uppercase text-gray-400   leading-none">
+								<p className="lg:text-6vw text-3xl uppercase text-white leading-none">Hey there, I'm</p>
+								<p className="lg:text-6vw text-3xl uppercase text-gray-400 leading-none">
 									Pasquale Parillo.
 								</p>
 							</div>

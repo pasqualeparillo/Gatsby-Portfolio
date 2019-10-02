@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import MediaQuery from 'react-responsive';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { AnimationContext } from '../store/animation';
 
@@ -60,31 +61,67 @@ export function SquareIndex({ location }) {
 	}, [pageLocation]);
 
 	return (
-		<motion.div
-			className="absolute bg-gray-1000 rounded-full overflow-hidden"
-			animate={animation}
-			initial={{
-				scale: 1,
-				x: '-50%',
-				y: '-50%',
-				top: '50%',
-				left: '50%',
-				height: '30vw',
-				width: '30vw'
-			}}
-		>
-			<AnimatePresence>
-				{indexActive && (
-					<motion.div
-						initial={{ opacity: 1 }}
-						animate={{
-							boxShadow: `inset 0px ${mouseCoords / 50}px 80px ${mouseCoords / 50}px rgba(255,255,255,1)`
-						}}
-						exit={{ opacity: 0 }}
-						className="w-full h-full absolute rounded-full"
-					/>
-				)}
-			</AnimatePresence>
-		</motion.div>
+		<>
+			<MediaQuery minWidth={992}>
+				<motion.div
+					className="absolute bg-gray-1000 rounded-full overflow-hidden"
+					animate={animation}
+					initial={{
+						scale: 1,
+						x: '-50%',
+						y: '-50%',
+						top: '50%',
+						left: '50%',
+						height: '30vw',
+						width: '30vw'
+					}}
+				>
+					<AnimatePresence>
+						{indexActive && (
+							<motion.div
+								initial={{ opacity: 1 }}
+								animate={{
+									boxShadow: `inset 0px 40px 80px ${mouseCoords.y / 20}px rgba(255,255,255,1)`,
+									x: mouseCoords.x / 50,
+									y: mouseCoords.y / 50
+								}}
+								exit={{ opacity: 0 }}
+								className="w-full h-full absolute rounded-full"
+							/>
+						)}
+					</AnimatePresence>
+				</motion.div>
+			</MediaQuery>
+			<MediaQuery maxWidth={992}>
+				<motion.div
+					className="absolute bg-gray-1000 rounded-full overflow-hidden"
+					animate={animation}
+					initial={{
+						scale: 1,
+						x: '-50%',
+						y: '-50%',
+						top: '50%',
+						left: '50%',
+						height: '75vw',
+						width: '75vw'
+					}}
+				>
+					<AnimatePresence>
+						{indexActive && (
+							<motion.div
+								initial={{ opacity: 1 }}
+								animate={{
+									boxShadow: `inset 0px 40px 80px ${mouseCoords.y / 20}px rgba(255,255,255,1)`,
+									x: mouseCoords.x / 50,
+									y: mouseCoords.y / 50
+								}}
+								exit={{ opacity: 0 }}
+								className="w-full h-full absolute rounded-full"
+							/>
+						)}
+					</AnimatePresence>
+				</motion.div>
+			</MediaQuery>
+		</>
 	);
 }

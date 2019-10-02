@@ -7,7 +7,7 @@ export function AnimationProvider(props) {
 	const [aboutActive, setAboutActive] = useState(false);
 	const [workActive, setWorkActive] = useState(false);
 	const [contactActive, setContactActive] = useState(false);
-	const [mouseCoords, setMouseCoords] = useState(0);
+	const [mouseCoords, setMouseCoords] = useState({ x: 0, y: 0 });
 	return (
 		<AnimationContext.Provider
 			value={{
