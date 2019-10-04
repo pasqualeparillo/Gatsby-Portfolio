@@ -37,26 +37,23 @@ export default function ContactPage() {
       variants={variants}
     >
       <div className="w-full items-end flex flex-col flex-1">
-        <div className="lg:w-4/5 w-full p-4 flex flex-col flex-1 p-8 lg:mt-0 mt-26">
+        <div className="lg:w-4/5 w-full flex flex-col flex-1 pl-8 pt-8 pb-8 lg:mt-0 mt-26">
           <p className="text-white lg:text-15vw text-19vw leading-negative tracking-tighest break-words">
-            Don't be
-          </p>
-          <p className="text-white lg:text-15vw text-19vw leading-negative tracking-tighest break-words">
-            a stranger
+            Don't be a stranger
           </p>
         </div>
-        <div className="lg:w-4/5 w-full p-4 flex lg:flex-row flex-col">
-          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-0 pb-8 items-center justify-between">
+        <div className="lg:w-4/5 w-full p-8 flex lg:flex-row flex-col">
+          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-2 pb-8 items-center justify-between">
             <p className="text-white lg:w-full lg:text-xl text-2xl">Email -</p>
             <p className="text-white lg:text-base text-xs">
               patparillo@gmail.com
             </p>
           </div>
-          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-0 pb-8 items-center justify-between">
+          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-2 pb-8 items-center justify-between">
             <p className="text-white lg:w-full lg:text-xl text-2xl">Phone -</p>
             <p className="text-white lg:text-base text-base">203-306-9965</p>
           </div>
-          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-0 pb-8 items-center justify-between">
+          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-2 pb-8 items-center justify-between">
             <p className="text-white lg:w-full lg:text-xl text-2xl">
               Location -
             </p>

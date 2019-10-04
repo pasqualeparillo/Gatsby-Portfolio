@@ -82,34 +82,35 @@ export default function IndexPage() {
             style={{ marginLeft: "calc(11vw + 1rem)", height: "11vw" }}
           >
             <div className="w-1/3 flex justify-center items-center z-1000 text-white mix-blend-difference">
-              <Link className="relative p-4 overflow-hidden " to="/about">
-                <p
-                  className="uppercase link-hover text-2xl text-white"
-                  onMouseEnter={() => setLinkHover(true)}
-                  onMouseLeave={() => setLinkHover(false)}
-                >
+              <Link
+                className="relative p-4 overflow-hidden "
+                onMouseEnter={() => setLinkHover(true)}
+                onMouseLeave={() => setLinkHover(false)}
+                to="/about"
+              >
+                <p className="uppercase link-hover text-2xl text-white">
                   About
                 </p>
               </Link>
             </div>
             <div className="w-1/3 flex justify-center items-center z-1000 text-white mix-blend-difference">
-              <Link className="relative p-4 overflow-hidden" to="/work">
-                <p
-                  className="uppercase link-hover text-2xl text-white"
-                  onMouseEnter={() => setLinkHover(true)}
-                  onMouseLeave={() => setLinkHover(false)}
-                >
-                  Work
-                </p>
+              <Link
+                className="relative p-4 overflow-hidden"
+                onMouseEnter={() => setLinkHover(true)}
+                onMouseLeave={() => setLinkHover(false)}
+                to="/work"
+              >
+                <p className="uppercase link-hover text-2xl text-white">Work</p>
               </Link>
             </div>
             <div className="w-1/3 flex justify-center items-center z-1000 text-white mix-blend-difference">
-              <Link className="relative p-4 overflow-hidden " to="/contact">
-                <p
-                  className="uppercase link-hover text-2xl text-white"
-                  onMouseEnter={() => setLinkHover(true)}
-                  onMouseLeave={() => setLinkHover(false)}
-                >
+              <Link
+                className="relative p-4 overflow-hidden "
+                onMouseEnter={() => setLinkHover(true)}
+                onMouseLeave={() => setLinkHover(false)}
+                to="/contact"
+              >
+                <p className="uppercase link-hover text-2xl text-white">
                   Contact
                 </p>
               </Link>
