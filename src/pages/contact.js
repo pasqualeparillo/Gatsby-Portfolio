@@ -14,24 +14,56 @@ export default function ContactPage() {
     setAboutActive(false)
     setWorkActive(false)
   }, [])
-  const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
   const variants = {
-    initial: { scale: 0.9, opacity: 0 },
-    enter: { scale: 1, opacity: 1, transition },
+    initial: { scale: 0.9, opacity: 1 },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
     exit: {
-      scale: 0.5,
       opacity: 0,
-      transition: { duration: 1.5, ...transition },
+      transition: { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] },
     },
   }
   return (
     <motion.div
-      className="flex flex-wrap-reverse w-full h-full relative"
+      className="flex flex-col w-full h-full relative bg-black flex-1 items-end z-50 overflow-y-visible"
       initial="exit"
       animate="enter"
       exit="exit"
       variants={variants}
-      transition={transition}
-    ></motion.div>
+    >
+      <div className="w-full items-end flex flex-col flex-1">
+        <div className="lg:w-4/5 w-full p-4 flex flex-col flex-1 p-8 lg:mt-0 mt-26">
+          <p className="text-white lg:text-15vw text-19vw leading-negative tracking-tighest break-words">
+            Don't be
+          </p>
+          <p className="text-white lg:text-15vw text-19vw leading-negative tracking-tighest break-words">
+            a stranger
+          </p>
+        </div>
+        <div className="lg:w-4/5 w-full p-4 flex lg:flex-row flex-col">
+          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-0 pb-8 items-center justify-between">
+            <p className="text-white lg:w-full lg:text-xl text-2xl">Email -</p>
+            <p className="text-white lg:text-base text-xs">
+              patparillo@gmail.com
+            </p>
+          </div>
+          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-0 pb-8 items-center justify-between">
+            <p className="text-white lg:w-full lg:text-xl text-2xl">Phone -</p>
+            <p className="text-white lg:text-base text-base">203-306-9965</p>
+          </div>
+          <div className="lg:w-1/3 w-full flex flex-wrap lg:p-8 p-2 lg:pb-0 pb-8 items-center justify-between">
+            <p className="text-white lg:w-full lg:text-xl text-2xl">
+              Location -
+            </p>
+            <p className="text-white lg:text-base text-xs">Seattle, WA</p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
   )
 }

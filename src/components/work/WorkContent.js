@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { AnimationContext } from "../store/animation"
 import { ProjectContainer } from "../styled/container"
-import WorkArrow from "./workArrow"
 
 export default function WorkContent() {
   const { pageLocation, workActive } = useContext(AnimationContext)
@@ -36,38 +35,37 @@ export default function WorkContent() {
     <AnimatePresence>
       {pageLocation === "/work" && (
         <motion.div
-          className="min-h-screen bg-gray-1000 w-full pt-16 pr-16 pl-16 relative"
+          className="min-h-screen bg-black lg:w-3/4 w-full pt-16 lg:pr-16 lg:pl-16 pl-4 pr-4 relative"
           variants={variant}
           animate="enter"
           exit="exit"
           key={workActive}
           initial={{ opacity: 0, y: 50 }}
         >
-          <div className="flex flex-col flex-wrap w-full ">
+          <div className="flex flex-col flex-wrap lg:w-3/4 w-full ">
             <div className="flex flex-col w-8/12 pb-12">
-              <h2 className="text-white   text-5xl font-semibold">
-                Work
-              </h2>
+              <h2 className="text-white   text-5xl font-semibold">Work</h2>
             </div>
           </div>
           <div className="pb-24 flex flex-col">
             <div className="flex flex-col flex-wrap w-full pb-24">
               <div className="flex flex-col flex-wrap w-full pb-24 w-8/12">
                 {[0, 1, 2, 3, 4].map(id => (
-                  <ProjectContainer className="text-white hover:text-gray-800 transform overflow-hidden">
+                  <ProjectContainer
+                    className="text-white hover:text-gray-800 transform overflow-hidden"
+                    key={id}
+                  >
                     <motion.div
                       className="flex w-full justify-between items-center"
                       variants={child}
-                      key={id}
                       initial={{ opacity: 0, y: 50 }}
                     >
-                      <p className="uppercase text-xl  ">
+                      <p className="uppercase lg:text-4xl text-lg  ">
                         Project Title
                       </p>
-                      <p className="uppercase text-xs  ">
+                      <p className="uppercase lg:text-lg  text-xs ">
                         Interactive Website - Project Description
                       </p>
-                      <WorkArrow styles={"fill-current"} />
                     </motion.div>
                   </ProjectContainer>
                 ))}

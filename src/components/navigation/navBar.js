@@ -27,7 +27,7 @@ export default function NavBar() {
 
   return (
     <div
-      className="z-1000 fixed left-0 lg:bottom-0 top-0"
+      className="z-1000 fixed left-0 lg:bottom-0"
       onClick={() => setIsOpen(!open)}
     >
       <MediaQuery minWidth={992}>
