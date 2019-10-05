@@ -9,7 +9,7 @@ import MediaQuery from "react-responsive"
 import { motion, useAnimation, AnimatePresence } from "framer-motion"
 import { AnimationContext } from "../store/animation"
 
-export function SquareIndex({ location }) {
+export function CircleIndex({ location }) {
   const { pageLocation, indexActive, mouseCoords, linkHovered } = useContext(
     AnimationContext
   )

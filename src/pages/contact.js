@@ -30,7 +30,7 @@ export default function ContactPage() {
   }
   return (
     <motion.div
-      className="flex flex-col w-full h-full relative bg-black flex-1 items-end z-50 overflow-y-visible"
+      className="flex flex-col w-full h-full relative bg-black flex-1 items-end z-50"
       initial="exit"
       animate="enter"
       exit="exit"

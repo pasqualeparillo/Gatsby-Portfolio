@@ -1,61 +1,77 @@
 @import url("https://fonts.googleapis.com/css?family=Vollkorn:400,600,700,900&display=swap");
-@import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Space+Mono&display=swap");
 
 * {
-	font-family: 'Space Mono', monospace;
-}
-
-html {
-	overflow: scroll;
-	overflow-x: hidden;
-	overflow-y: hidden;
+  font-family: "Space Mono", monospace;
 }
 ::-webkit-scrollbar {
-	width: 0px; /* Remove scrollbar space */
-	background: transparent; /* Optional: just make scrollbar invisible */
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
-
 .transform {
-	transition: 0.4s all;
-}
-body {
-	overflow: hidden;
+  transition: 0.4s all;
 }
 .link-hover {
-	-webkit-transition: all 0.6s ease;
-	transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+body {
+  overflow: hidden;
 }
 .link-hover:after {
-	content: "";
-	position: absolute;
-	height: 5px;
-	top: 50%;
-	background-color: #fff;
-	width: 0;
-	bottom: 0;
-	left: 0;
-	-webkit-transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
-	transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+  content: "";
+  position: absolute;
+  height: 5px;
+  top: 50%;
+  background-color: #fff;
+  width: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+  transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
 }
 
 .link-hover:hover:after {
-	width: 100%;
+  width: 100%;
 }
 .test-style {
-	font-size: 18vw;
-	position: relative;
-	max-width: 100%;
-	margin-bottom: 0;
-	line-height: .9;
+  font-size: 18vw;
+  position: relative;
+  max-width: 100%;
+  margin-bottom: 0;
+  line-height: 0.9;
 }
 
 .index-mobile {
-	font-size: 20vw;
-	position: relative;
-	max-width: 100%;
-	margin-bottom: 0;
-	line-height: .9;
+  font-size: 20vw;
+  position: relative;
+  max-width: 100%;
+  margin-bottom: 0;
+  line-height: 0.9;
 }
 .mix-blend-difference {
-	mix-blend-mode: difference;
+  mix-blend-mode: difference;
+}
+
+@media (min-width: 640px) {
+  body {
+    overflow-y: scroll;
+  }
+}
+
+/* Medium (md) */
+@media (min-width: 768px) {
+  /* ... */
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) {
+  /* ... */
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
+  body {
+    overflow-y: hidden;
+  }
 }

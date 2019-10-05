@@ -24,7 +24,7 @@ export default function WorkPage() {
   }
   return (
     <motion.div
-      className="flex flex-wrap-reverse w-full h-full relative bg-black flex-1 justify-center z-50 overflow-y-visible"
+      className="flex flex-wrap-reverse w-full h-full relative bg-black flex-1 justify-center z-50 "
       initial="exit"
       animate="enter"
       exit="exit"
